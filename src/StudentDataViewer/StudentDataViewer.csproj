@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DisplayLogic.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CourseStudent.cs" />
     <Compile Include="Models\ProgramIndex.cs" />
