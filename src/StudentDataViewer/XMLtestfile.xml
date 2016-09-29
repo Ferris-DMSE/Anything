@@ -1,16 +1,10 @@
 <?xml version="1.0"?>
 <ProgramIndex xmlns="http://schemas.datacontract.org/2004/07/StudentDataViewer.Models">
   <Students>
-    <Student>
-      <StudentID>
-        00111
-      </StudentID>
-      <FirstName>
-        Sally
-      </FirstName>
-      <LastName>
-        Esstaburger
-      </LastName>
+    <Student FirstName="Test">
+      <StudentID>00111</StudentID>
+      <FirstName>Sally</FirstName>
+      <LastName>Esstaburger</LastName>
     </Student>
     <Student>
       <StudentID>
@@ -26,21 +20,11 @@
   </Students>
   <Courses>
     <Course>
-      <CourseName>
-        Principles of Macro Economics
-      </CourseName>
-      <CourseID>
-        020055
-      </CourseID>
-      <CourseNumber>
-        101
-      </CourseNumber>
-      <Credit>
-        4
-      </Credit>
-      <Semester>
-        Fall
-      </Semester>
+      <CourseName>Principles of Macro Economics</CourseName>
+      <CourseID>020055</CourseID>
+      <CourseNumber>101</CourseNumber>
+      <Credit>4</Credit>
+      <Semester>Fall</Semester>
       <Year>
         2016
       </Year>
