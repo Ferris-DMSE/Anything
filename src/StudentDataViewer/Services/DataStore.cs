@@ -23,7 +23,7 @@ namespace StudentDataViewer.Services
 
         internal ProgramIndex LoadData()
         {
-            var stream = File.OpenRead("data.xml");
+            var stream = File.OpenRead("XMLtestfile.xml");
             ProgramIndex data = (ProgramIndex)dcs.ReadObject(stream);
             stream.Close();
             return data;
