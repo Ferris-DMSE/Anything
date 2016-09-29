@@ -13,8 +13,12 @@ namespace StudentDataViewer.Services
     {
         DataContractSerializer dcs = new DataContractSerializer(typeof(ProgramIndex));
 
+
         public DataStore()
         {
+
+
+
         }
 
         internal ProgramIndex LoadData()
@@ -23,6 +27,18 @@ namespace StudentDataViewer.Services
             ProgramIndex data = (ProgramIndex)dcs.ReadObject(stream);
             stream.Close();
             return data;
+
+            throw new NotImplementedException();
+        }
+
+        internal ProgramIndex WriteData()
+        {
+            //var stream = File.OpenWrite("data.xml");
+            //ProgramIndex data = (ProgramIndex)dcs.WriteObject(stream);
+            //stream.Close();
+            //return data;
+
+
 
             throw new NotImplementedException();
         }
