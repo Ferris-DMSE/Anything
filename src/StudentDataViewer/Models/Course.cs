@@ -8,8 +8,26 @@ namespace StudentDataViewer.Models
     public class Course
     {
 
-        [DataMember()]
+        [DataMember]
         public string CourseName;
+
+        [DataMember]
+        public int CourseID;
+
+        [DataMember]
+        public int CourseNumber;
+
+        [DataMember]
+        public double Credit;
+
+        [DataMember]
+        public string Semester;
+
+        [DataMember]
+        public int Year;
+
+        [DataMember]
+        public string CourseType;
 
     }
 }

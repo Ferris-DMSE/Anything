@@ -8,7 +8,7 @@ namespace StudentDataViewer.Models
     public class CourseStudent
     {
 
-        [DataMember()]
+        [DataMember]
         public string Grade;
 
         [DataMember]
