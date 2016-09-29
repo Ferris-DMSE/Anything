@@ -5,34 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using StudentDataViewer.Models;
+using StudentDataViewer.Services;
 
 namespace StudentDataViewer
 {
     //added System.Runtime.Serializer reference to access DataContractSerializer classes
     //DataCantractSerializer contains the reading and editing logic for XML files
-    //public abstract class XmlObjectSerializer
-    //{
-        
-    //}
-
-    //public sealed class DataContractSerializer : XmlObjectSerializer
-    //{
-
-    //}
 
 
-
-
-    //class ProgramIndex
-    //{
-    //    public void ReadXML ()
-    //    {
-    //        Stream s = File.OpenRead(“file.xml”);
-    //        ProgramIndex data = (ProgramIndex)dcs.DeserializeObject(s);
-    //        s.Close();
-    //        return data;
-    //    }
-    //}
 
 
 
@@ -43,8 +23,8 @@ namespace StudentDataViewer
 
         static void Main(string[] args)
         {
-            DataContractSerializer dcs = new DataContractSerializer(typeof(ProgramIndex));
-
+            var ds = new DataStore();
+            ProgramIndex programData = ds.LoadData();
         }
     }
 }
