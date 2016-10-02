@@ -12,10 +12,10 @@ namespace StudentDataViewer.Models
         public string FirstName { get; set; }
 
         [DataMember(Order = 2)]
-        public string LastName;
+        public string LastName { get; set; }
 
         [DataMember(Order = 0)]
-        public int StudentID;
+        public int StudentID { get; set; }
 
     }
 }
