@@ -1,5 +1,12 @@
 <?xml version="1.0"?>
 <ProgramIndex xmlns="http://schemas.datacontract.org/2004/07/StudentDataViewer.Models">
+  <!-- NOTE to editors: Make sure that all of the listed properties are in the correct order. -->
+  <!-- For example, when adding another student to the file, make sure that the StudentID tag is -->
+  <!-- first before FirstName and LastName. -->
+  
+  <!-- ALSO, make sure to edit the src\StudentDataViewer\bin\Debug\XMLtestfile.xml or otherwise your changes will not show up. -->
+  <!-- OTHERWISE, if you edit the src\StudentDataViewer\XMLtestfile.xml make sure to rebuild the application. -->
+  <!-- Do note that rebuilding the application will overwrite the bin\Debug\XMLtestfile.xml with the src\StudentDataViewer\XMLtestfile.xml -->
   <Students>
     <Student>
       <StudentID>00111</StudentID>

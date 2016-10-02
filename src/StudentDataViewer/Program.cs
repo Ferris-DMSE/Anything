@@ -9,18 +9,8 @@ using StudentDataViewer.Services;
 
 namespace StudentDataViewer
 {
-    //added System.Runtime.Serializer reference to access DataContractSerializer classes
-    //DataCantractSerializer contains the reading and editing logic for XML files
-
-
-
-
-
-    class Program
+    public class Program
     {
-
-
-
         static void Main(string[] args)
         {
             var ds = new DataStore();
