@@ -7,7 +7,6 @@ namespace StudentDataViewer.Models
     [DataContract]
     public class CourseStudent
     {
-
         [DataMember(Order = 0)]
         public string Grade { get; set; }
 
@@ -16,6 +15,5 @@ namespace StudentDataViewer.Models
 
         [DataMember(Order = 2)]
         public int CourseID { get; set; }
-
     }
 }
