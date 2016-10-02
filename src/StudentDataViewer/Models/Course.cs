@@ -9,7 +9,7 @@ namespace StudentDataViewer.Models
     {
 
         [DataMember(Order = 0)]
-        public string CourseName;
+        public string CourseName { get; set; }
 
         [DataMember(Order = 1)]
         public int CourseID { get; set; }

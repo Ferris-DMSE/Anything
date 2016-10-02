@@ -10,13 +10,14 @@ namespace StudentDataViewer.Models
     [DataContract]
     public class ProgramIndex
     {
-        [DataMember]
+        [DataMember(Order = 0)]
         public List<Student> Students;
 
-        [DataMember]
+        [DataMember(Order = 1)]
         public List<Course> Courses;
 
-        [DataMember]
+        [DataMember(Order = 2)]
         public List<CourseStudent> CourseStudents;
     }
+
 }
