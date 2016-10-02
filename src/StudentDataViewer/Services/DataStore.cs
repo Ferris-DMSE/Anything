@@ -9,26 +9,16 @@ using System.Threading.Tasks;
 
 namespace StudentDataViewer.Services
 {
-    class DataStore
+    public class DataStore
     {
-        DataContractSerializer dcs = new DataContractSerializer(typeof(ProgramIndex));
+        DataContractSerializer dataContractSerializer = new DataContractSerializer(typeof(ProgramIndex));
 
-
-        public DataStore()
-        {
-
-
-
-        }
-
-        internal ProgramIndex LoadData()
+        public ProgramIndex LoadData()
         {
             var stream = File.OpenRead("XMLtestfile.xml");
-            ProgramIndex data = (ProgramIndex)dcs.ReadObject(stream);
+            ProgramIndex data = (ProgramIndex)dataContractSerializer.ReadObject(stream);
             stream.Close();
             return data;
-
         }
-
     }
 }
