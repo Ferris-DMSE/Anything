@@ -8,14 +8,14 @@ namespace StudentDataViewer.Models
     public class Student
     {
 
-        [DataMember]
-        public string FirstName;
+        [DataMember(Order = 1)]
+        public string FirstName { get; set; }
 
-        [DataMember]
-        public string LastName;
+        [DataMember(Order = 2)]
+        public string LastName { get; set; }
 
-        [DataMember]
-        public int StudentID;
+        [DataMember(Order = 0)]
+        public int StudentID { get; set; }
 
     }
 }

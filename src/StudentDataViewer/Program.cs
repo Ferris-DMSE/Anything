@@ -25,6 +25,7 @@ namespace StudentDataViewer
         {
             var ds = new DataStore();
             ProgramIndex programData = ds.LoadData();
+            Console.WriteLine(programData);
         }
     }
 }
