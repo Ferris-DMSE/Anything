@@ -36,7 +36,7 @@ namespace StudentDataViewer.Models
         /// Appears second in CourseStudent XML tags.
         /// </summary>
         [DataMember(Order = 1)]
-        public int StudentID { get; set; }
+        public string StudentID { get; set; }
 
         /// <summary>
         /// The ID of the course that this relationship references.

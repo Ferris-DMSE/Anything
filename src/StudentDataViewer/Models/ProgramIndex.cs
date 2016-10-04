@@ -45,8 +45,8 @@ namespace StudentDataViewer.Models
                     var course = FindCourseByID(courseID);
                     var courseGrade = new CourseGrade
                     {
-                    Course = course,
-                    Grade = grade,
+                        Course = course,
+                        Grade = grade,
                     };
                     list.Add(courseGrade);
                 }
@@ -61,6 +61,18 @@ namespace StudentDataViewer.Models
                 if (course.CourseID == courseID)
                 {
                     return course;
+                }
+            }
+            return null;
+        }
+
+        public Student FindStudentByID(string studentID)
+        {
+            foreach (Student student in Students)
+            {
+                if (student.StudentID == studentID)
+                {
+                    return student;
                 }
             }
             return null;

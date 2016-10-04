@@ -35,7 +35,7 @@ namespace StudentDataViewer.Models
         /// Appears third in Course XML tags.
         /// </summary>
         [DataMember(Order = 2)]
-        public int CourseNumber { get; set; }
+        public string CourseNumber { get; set; }
 
         /// <summary>
         /// The number of credits that the course is worth.

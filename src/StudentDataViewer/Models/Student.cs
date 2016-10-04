@@ -35,6 +35,6 @@ namespace StudentDataViewer.Models
         /// Appears first Student XML tags.
         /// </summary>
         [DataMember(Order = 0)]
-        public int StudentID { get; set; }
+        public string StudentID { get; set; }
     }
 }
