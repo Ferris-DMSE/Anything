@@ -24,7 +24,7 @@ namespace StudentDataViewer.Models
             List<CourseGrade> list = new List<CourseGrade>();
             // Loop through CourseStudents
             // Very silly
-            foreach (CourseStudents courseStudent in CourseStudents)
+            foreach (CourseStudent courseStudent in CourseStudents)
             {
                 if (courseStudent.StudentID == student.StudentID)
                 {
@@ -51,6 +51,7 @@ namespace StudentDataViewer.Models
                     return course;
                 }
             }
+            return null;
         }
     }
 }
