@@ -12,7 +12,7 @@ namespace StudentDataViewer.Models
         public string Grade { get; set; }
 
         [DataMember(Order = 1)]
-        public int StudentID { get; set; }
+        public string StudentID { get; set; }
 
         [DataMember(Order = 2)]
         public int CourseID { get; set; }
