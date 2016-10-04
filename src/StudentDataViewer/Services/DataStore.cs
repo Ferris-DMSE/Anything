@@ -9,26 +9,25 @@ using System.Threading.Tasks;
 
 namespace StudentDataViewer.Services
 {
-    class DataStore
+    /// <summary>
+    /// Defines a class that is able to load our <see cref="ProgramIndex"/>
+    /// data model from the XMLtestfile.xml file.
+    /// </summary>
+    public class DataStore
     {
-        DataContractSerializer dcs = new DataContractSerializer(typeof(ProgramIndex));
+        DataContractSerializer dataContractSerializer = new DataContractSerializer(typeof(ProgramIndex));
 
-
-        public DataStore()
-        {
-
-
-
-        }
-
-        internal ProgramIndex LoadData()
+        /// <summary>
+        /// Loads the data currently in XMLtestfile.xml into a new <see cref="ProgramIndex"/> object, and
+        /// returns it.
+        /// </summary>
+        /// <returns>Returns a new <see cref="ProgramIndex"/> object with all of the data from XMLtestfile.xml prepopulated.</returns>
+        public ProgramIndex LoadData()
         {
             var stream = File.OpenRead("XMLtestfile.xml");
-            ProgramIndex data = (ProgramIndex)dcs.ReadObject(stream);
+            ProgramIndex data = (ProgramIndex)dataContractSerializer.ReadObject(stream);
             stream.Close();
             return data;
-
         }
-
     }
 }
