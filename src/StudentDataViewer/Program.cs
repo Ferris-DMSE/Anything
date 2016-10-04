@@ -22,14 +22,14 @@ namespace StudentDataViewer
             {
                 FirstName = "Kirk",
                 LastName = "Novitsky",
-                StudentID = 12345,
+                StudentID = "12345",
             }, new List<Course>()
                         {
                             new Course
                             {
                                 CourseName = "Programming",
                                 CourseID = 123,
-                                CourseNumber = 321,
+                                CourseNumber = "321",
                                 Credit = 10,
                                 Semester = "Fall",
                                 Year = 2016,
