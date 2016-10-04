@@ -7,11 +7,8 @@ namespace StudentDataViewer
 {
     public class DisplayLogic
     {
-
-        public void Display(student student, List<Course> courses)
+        public void Display(Student student, List<Course> courses)
         {
-
-            //   Console.WriteLine("Student: " + student.FirstName + " " + student.LastName + " id:" + student.StudentID);j
             Console.WriteLine("First Name: " + student.FirstName);
             Console.WriteLine("Last Name: " + student.LastName);
             Console.WriteLine("Student ID: " + student.StudentID);
@@ -28,9 +25,7 @@ namespace StudentDataViewer
                 Console.WriteLine("Semester: " + course.Semester);
                 Console.WriteLine("Year: " + course.Year);
                 Console.WriteLine();
-
             }
-
         }
     }
 }

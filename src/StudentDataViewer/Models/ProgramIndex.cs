@@ -8,7 +8,7 @@ namespace StudentDataViewer.Models
 {
     class ProgramIndex
     {
-        public List<student> Students;
+        public List<Student> Students;
 
         public List<Course> Courses;
 

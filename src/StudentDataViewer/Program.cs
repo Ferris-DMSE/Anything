@@ -27,7 +27,7 @@ namespace StudentDataViewer
             var displayLogic = new DisplayLogic();
 
 
-            displayLogic.Display(new student
+            displayLogic.Display(new Student
             {
                 FirstName = "Kirk",
                 LastName = "Novitsky",
