@@ -7,7 +7,7 @@ namespace StudentDataViewer
 {
     public class DisplayLogic
     {
-        public void Display(Student student, List<Course> courses)
+        public void Display(Student student, List<CourseGrade> courses)
         {
             Console.WriteLine("First Name: " + student.FirstName);
             Console.WriteLine("Last Name: " + student.LastName);
@@ -15,15 +15,16 @@ namespace StudentDataViewer
             Console.WriteLine();
             Console.WriteLine("Courses: ");
             Console.WriteLine();
-            foreach (Course course in courses)
+            foreach (CourseGrade course in courses)
             {
-                Console.WriteLine("Name: " + course.CourseName);
-                Console.WriteLine("Id: " + course.CourseID);
-                Console.WriteLine("Number: " + course.CourseNumber);
-                Console.WriteLine("Type: " + course.CourseType);
-                Console.WriteLine("Credit: " + course.Credit);
-                Console.WriteLine("Semester: " + course.Semester);
-                Console.WriteLine("Year: " + course.Year);
+                Console.WriteLine("Name: " + course.Course.CourseName);
+                Console.WriteLine("Id: " + course.Course.CourseID);
+                Console.WriteLine("Number: " + course.Course.CourseNumber);
+                Console.WriteLine("Type: " + course.Course.CourseType);
+                Console.WriteLine("Credit: " + course.Course.Credit);
+                Console.WriteLine("Semester: " + course.Course.Semester);
+                Console.WriteLine("Year: " + course.Course.Year);
+                Console.WriteLine("Grade: " + course.Grade); 
                 Console.WriteLine();
             }
         }

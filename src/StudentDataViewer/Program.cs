@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using StudentDataViewer.Models;
+using StudentDataViewer.Services;
 
 namespace StudentDataViewer
 {
@@ -12,36 +13,25 @@ namespace StudentDataViewer
     {
         static void Main(string[] args)
         {
-            //var ds = new DataStore();
-            //ProgramIndex programData = ds.LoadData();
-
+            var ds = new DataStore();
+            ProgramIndex programData = ds.LoadData();
             var displayLogic = new DisplayLogic();
-
-
-            displayLogic.Display(new Student
+            while (true)
             {
-                FirstName = "Kirk",
-                LastName = "Novitsky",
-                StudentID = "12345",
-            }, new List<Course>()
-                        {
-                            new Course
-                            {
-                                CourseName = "Programming",
-                                CourseID = 123,
-                                CourseNumber = "321",
-                                Credit = 10,
-                                Semester = "Fall",
-                                Year = 2016,
-                                CourseType = "type", 
-                              //  CourseGrade = 'A',
-                            }
-                        });
-
-
-
-            Console.WriteLine("Press any key to exit...");
-            Console.ReadKey();
+                Console.WriteLine("Please enter a student ID : ");
+                string studentID = Console.ReadLine();
+                var student = programData.FindStudentByID(studentID);
+                if (student == null)
+                {
+                    continue;
+                }
+                else
+                {
+                    List<CourseGrade> list = programData.FindCoursesForStudent(student);
+                    displayLogic.Display(student, list);
+                    
+                }
+            }           
         }
     }
 }
