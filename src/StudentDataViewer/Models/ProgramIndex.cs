@@ -33,8 +33,8 @@ namespace StudentDataViewer.Models
                     var course = FindCourseByID(courseID);
                     var courseGrade = new CourseGrade
                     {
-                    Course = course,
-                    Grade = grade,
+                        Course = course,
+                        Grade = grade,
                     };
                     list.Add(courseGrade);
                 }
