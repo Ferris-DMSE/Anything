@@ -24,7 +24,7 @@ namespace StudentDataViewer.Models
             List<CourseGrade> list = new List<CourseGrade>();
             // Loop through CourseStudents
             // Very silly
-            foreach (CourseStudent courseStudent in CourseStudent)
+            foreach (CourseStudents courseStudent in CourseStudents)
             {
                 if (courseStudent.StudentID == student.StudentID)
                 {
@@ -37,12 +37,12 @@ namespace StudentDataViewer.Models
                     Grade = grade,
                     };
                     list.Add(courseGrade);
-                    return list;
                 }
             }
+            return list;
         }
 
-        public Course FindCourseByID(string courseID)
+        public Course FindCourseByID(int courseID)
         {
             foreach (Course course in Courses)
             {
