@@ -41,28 +41,17 @@ namespace StudentDataViewer.Models
                 list.Add(courseGrade);
             }
         }
-         //   if courseStudent.StudentID == student.StudentID
-         //       var grade = courseStudent.Grade
-         //       var courseID = courseStudent.CourseID
-         //       var course = FindCourseByID(courseID)
-         //       var courseGrade = new CourseGrade { ... }
-         //       list.Add(courseGrade)
     }
 
     public Course FindCourseByID(string courseID)
     {
-        // The code for FindStudentByID is almost exactly the same as this pseudocode
         foreach (Course course in Programdata)
         {
-            if course.CourseID == courseID
+            if (course.CourseID == courseID)
             {
                 return Course;
             }
-        };
-
-        // Loop through Courses
-        //   if course.CourseID == courseID
-        //      return course;
+        }
     }
     public class CourseGrade
     {
