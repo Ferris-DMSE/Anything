@@ -26,16 +26,16 @@ namespace StudentDataViewer.Models
             // Very silly
             foreach (CourseStudent courseStudent in CourseStudent)
             {
-                if (CourseStudent.StudentID == student.StudentID)
+                if (courseStudent.StudentID == student.StudentID)
                 {
                     var grade = courseStudent.Grade;
                     var courseID = courseStudent.CourseID;
                     var course = FindCourseByID(courseID);
                     var courseGrade = new CourseGrade
                     {
-                    Course = course:
-                    Grade = grade:
-                    }
+                    Course = course,
+                    Grade = grade,
+                    };
                     list.Add(courseGrade);
                     return list;
                 }
@@ -44,20 +44,13 @@ namespace StudentDataViewer.Models
 
         public Course FindCourseByID(string courseID)
         {
-            foreach (Course course in Programdata)
+            foreach (Course course in Courses)
             {
                 if (course.CourseID == courseID)
                 {
-                    return Course;
+                    return course;
                 }
             }
         }
-    }
-
-    
-    public class CourseGrade
-    {
-        public Course Course { get; set; }
-        public string Grade { get; set; }
     }
 }
