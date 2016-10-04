@@ -54,6 +54,7 @@ namespace StudentDataViewer.Models
             return null;
         }
 
+        public Student FindStudentByID(int studentID)
         {
             foreach (Student student in Students)
             {
