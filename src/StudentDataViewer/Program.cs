@@ -23,9 +23,12 @@ namespace StudentDataViewer
                 FirstName = "Kirk",
                 LastName = "Novitsky",
                 StudentID = "12345",
-            }, new List<Course>()
-                        {
-                            new Course
+            }, new List<CourseGrade>()
+                    {
+                       new CourseGrade ()
+                       {
+
+                              Course = new Course
                             {
                                 CourseName = "Programming",
                                 CourseID = 123,
@@ -36,6 +39,10 @@ namespace StudentDataViewer
                                 CourseType = "type", 
                               //  CourseGrade = 'A',
                             }
+
+                              , Grade = "A"
+                              
+                           }
                         });
 
 
