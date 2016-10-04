@@ -36,7 +36,7 @@ namespace StudentDataViewer
                                 Credit = 10,
                                 Semester = "Fall",
                                 Year = 2016,
-                                CourseType = "type", 
+                                CourseType = "General Education", 
                               //  CourseGrade = 'A',
                             }
 

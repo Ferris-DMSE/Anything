@@ -2,6 +2,7 @@
 using StudentDataViewer;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace StudentDataViewer
 {
@@ -26,6 +27,22 @@ namespace StudentDataViewer
                 Console.WriteLine("Year: " + course.Course.Year);
                 Console.WriteLine("Grade: " + course.Grade); 
                 Console.WriteLine();
+            }
+
+            Console.WriteLine("Completed Core Courses: ");
+            foreach (CourseGrade course in courses.Where(x => x.Course.CourseType == "Core"))
+            {
+                Console.WriteLine(course.Course.CourseName);
+            }
+            Console.WriteLine("Completed General Education Courses: ");
+            foreach (CourseGrade course in courses.Where(z => z.Course.CourseType == "General Education" ))
+            {
+                Console.WriteLine(course.Course.CourseName);
+            }
+            Console.WriteLine("Completed Elective Courses: ");
+            foreach (CourseGrade course in courses.Where(k => k.Course.CourseType == "Elective"))
+            {
+                Console.WriteLine(course.Course.CourseName);
             }
         }
     }
