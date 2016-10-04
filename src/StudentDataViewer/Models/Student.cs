@@ -5,7 +5,7 @@ using System.Xml;
 namespace StudentDataViewer.Models
 {
     [DataContract]
-    public class Student
+    public class student
     {
 
         [DataMember]
