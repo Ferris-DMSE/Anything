@@ -15,7 +15,7 @@ namespace StudentDataViewer.Models
         public int CourseID { get; set; }
 
         [DataMember(Order = 2)]
-        public int CourseNumber { get; set; }
+        public string CourseNumber { get; set; }
 
         [DataMember(Order = 3)]
         public double Credit { get; set; }

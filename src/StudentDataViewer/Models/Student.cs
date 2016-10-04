@@ -15,7 +15,7 @@ namespace StudentDataViewer.Models
         public string LastName { get; set; }
 
         [DataMember(Order = 0)]
-        public int StudentID { get; set; }
+        public string StudentID { get; set; }
 
     }
 }

@@ -53,5 +53,15 @@ namespace StudentDataViewer.Models
             }
             return null;
         }
+
+        {
+            foreach (Student student in Students)
+            {
+                if (student.StudentID == studentID)
+                {
+                    return student;
+                }
+            }
+        }
     }
 }
