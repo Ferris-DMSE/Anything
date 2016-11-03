@@ -18,7 +18,7 @@ namespace StudentDataViewer
             var displayLogic = new DisplayLogic();
             while (true)
             {
-                Console.WriteLine("Please enter a student ID : ");
+                //Console.WriteLine("Please enter a student ID : ");
                 string studentID = Console.ReadLine();
                 var student = programData.FindStudentByID(studentID);
                 if (student == null)
