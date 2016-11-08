@@ -4,20 +4,20 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{f37caae1-40c2-4441-835c-f4a9d61a1c96}</ProjectGuid>
+    <ProjectGuid>{16947a95-af4f-4949-ba01-45fd20cce1d1}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GUI_Anythign</RootNamespace>
-    <AssemblyName>GUI Anythign</AssemblyName>
+    <RootNamespace>GUI_StudentDataViewer</RootNamespace>
+    <AssemblyName>GUI StudentDataViewer</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     
-    <PackageCertificateKeyFile>GUI Anythign_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>GUI StudentDataViewer_TemporaryKey.pfx</PackageCertificateKeyFile>
     
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -107,7 +107,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     
-    <None Include="GUI Anythign_TemporaryKey.pfx" />
+    <None Include="GUI StudentDataViewer_TemporaryKey.pfx" />
     
   </ItemGroup>
   <ItemGroup>

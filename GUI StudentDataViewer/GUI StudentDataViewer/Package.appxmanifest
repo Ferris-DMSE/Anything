@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="e466a22c-dbcc-44ce-b4e4-39f862b9d9ca"
-    Publisher="CN=domat"
+    Name="e9fd0e63-7513-4a86-ac3f-c946f76e1f7a"
+    Publisher="CN=Matrix"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="e466a22c-dbcc-44ce-b4e4-39f862b9d9ca" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="e9fd0e63-7513-4a86-ac3f-c946f76e1f7a" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>GUI Anythign</DisplayName>
-    <PublisherDisplayName>domat</PublisherDisplayName>
+    <DisplayName>GUI StudentDataViewer</DisplayName>
+    <PublisherDisplayName>Matrix</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="GUI_Anythign.App">
+      EntryPoint="GUI_StudentDataViewer.App">
       <uap:VisualElements
-        DisplayName="GUI Anythign"
+        DisplayName="GUI StudentDataViewer"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="GUI Anythign"
+        Description="GUI StudentDataViewer"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
