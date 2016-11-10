@@ -33,7 +33,7 @@ namespace StudentDataViewer
             }
         }           
     }*/
-    static class Program
+    static class ProgramD
     {
         /// <summary>
         /// The main entry point for the application.
