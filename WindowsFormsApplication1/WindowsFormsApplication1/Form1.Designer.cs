@@ -169,7 +169,7 @@
             // CoreCompletion
             // 
             this.CoreCompletion.AutoSize = true;
-            this.CoreCompletion.Location = new System.Drawing.Point(99, 582);
+            this.CoreCompletion.Location = new System.Drawing.Point(112, 582);
             this.CoreCompletion.Name = "CoreCompletion";
             this.CoreCompletion.Size = new System.Drawing.Size(66, 17);
             this.CoreCompletion.TabIndex = 4;
@@ -178,7 +178,7 @@
             // ElectiveCompletion
             // 
             this.ElectiveCompletion.AutoSize = true;
-            this.ElectiveCompletion.Location = new System.Drawing.Point(171, 582);
+            this.ElectiveCompletion.Location = new System.Drawing.Point(197, 582);
             this.ElectiveCompletion.Name = "ElectiveCompletion";
             this.ElectiveCompletion.Size = new System.Drawing.Size(85, 17);
             this.ElectiveCompletion.TabIndex = 4;

@@ -44,19 +44,16 @@
       <Grade>B</Grade>
       <StudentID>0-00-111</StudentID>
       <CourseID>010666</CourseID>
-      <Completed>yes</Completed>
     </CourseStudent>
     <CourseStudent>
       <Grade>C</Grade>
       <StudentID>0-00-222</StudentID>
       <CourseID>020055</CourseID>
-      <Completed>yes</Completed>
     </CourseStudent>
     <CourseStudent>
       <Grade>A</Grade>
       <StudentID>0-00-222</StudentID>
       <CourseID>010666</CourseID>
-      <Completed>no</Completed>
     </CourseStudent>
   </CourseStudents>
 </ProgramIndex>
