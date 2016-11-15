@@ -63,7 +63,7 @@ namespace StudentDataViewer.Models
             foreach (CourseStudent courseStudent in CourseStudents)
             {
                 var tempcourse = FindCourseByID(courseStudent.CourseID);
-                CourseListViewName = tempcourse.CourseID + ", ID: " + Convert.ToString(tempcourse.CourseID);
+                CourseListViewName = tempcourse.CourseName + ", ID: " + Convert.ToString(tempcourse.CourseID);
                 CourseList.Add(CourseListViewName);
             }
             return CourseList;

@@ -52,7 +52,7 @@
             this.Students.Controls.Add(this.StudentListView);
             this.Students.Location = new System.Drawing.Point(12, 12);
             this.Students.Name = "Students";
-            this.Students.Size = new System.Drawing.Size(200, 382);
+            this.Students.Size = new System.Drawing.Size(336, 546);
             this.Students.TabIndex = 0;
             this.Students.TabStop = false;
             this.Students.Text = "Students";
@@ -61,7 +61,7 @@
             // 
             this.StudentListView.Location = new System.Drawing.Point(6, 21);
             this.StudentListView.Name = "StudentListView";
-            this.StudentListView.Size = new System.Drawing.Size(188, 355);
+            this.StudentListView.Size = new System.Drawing.Size(324, 519);
             this.StudentListView.TabIndex = 0;
             this.StudentListView.UseCompatibleStateImageBehavior = false;
             this.StudentListView.SelectedIndexChanged += new System.EventHandler(this.StudentListView_SelectedIndexChanged);
@@ -69,9 +69,9 @@
             // Courses
             // 
             this.Courses.Controls.Add(this.CoursesListView);
-            this.Courses.Location = new System.Drawing.Point(218, 12);
+            this.Courses.Location = new System.Drawing.Point(354, 12);
             this.Courses.Name = "Courses";
-            this.Courses.Size = new System.Drawing.Size(200, 255);
+            this.Courses.Size = new System.Drawing.Size(269, 371);
             this.Courses.TabIndex = 1;
             this.Courses.TabStop = false;
             this.Courses.Text = "Courses";
@@ -80,7 +80,7 @@
             // 
             this.CoursesListView.Location = new System.Drawing.Point(6, 21);
             this.CoursesListView.Name = "CoursesListView";
-            this.CoursesListView.Size = new System.Drawing.Size(188, 228);
+            this.CoursesListView.Size = new System.Drawing.Size(257, 344);
             this.CoursesListView.TabIndex = 0;
             this.CoursesListView.UseCompatibleStateImageBehavior = false;
             this.CoursesListView.SelectedIndexChanged += new System.EventHandler(this.CoursesListView_SelectedIndexChanged);
@@ -88,7 +88,7 @@
             // CourseID
             // 
             this.CourseID.AutoSize = true;
-            this.CourseID.Location = new System.Drawing.Point(221, 270);
+            this.CourseID.Location = new System.Drawing.Point(348, 386);
             this.CourseID.Name = "CourseID";
             this.CourseID.Size = new System.Drawing.Size(78, 17);
             this.CourseID.TabIndex = 2;
@@ -97,7 +97,7 @@
             // CourseNumber
             // 
             this.CourseNumber.AutoSize = true;
-            this.CourseNumber.Location = new System.Drawing.Point(221, 287);
+            this.CourseNumber.Location = new System.Drawing.Point(348, 403);
             this.CourseNumber.Name = "CourseNumber";
             this.CourseNumber.Size = new System.Drawing.Size(115, 17);
             this.CourseNumber.TabIndex = 2;
@@ -106,7 +106,7 @@
             // Credits
             // 
             this.Credits.AutoSize = true;
-            this.Credits.Location = new System.Drawing.Point(221, 321);
+            this.Credits.Location = new System.Drawing.Point(348, 437);
             this.Credits.Name = "Credits";
             this.Credits.Size = new System.Drawing.Size(60, 17);
             this.Credits.TabIndex = 2;
@@ -115,7 +115,7 @@
             // Semester
             // 
             this.Semester.AutoSize = true;
-            this.Semester.Location = new System.Drawing.Point(221, 338);
+            this.Semester.Location = new System.Drawing.Point(348, 454);
             this.Semester.Name = "Semester";
             this.Semester.Size = new System.Drawing.Size(76, 17);
             this.Semester.TabIndex = 2;
@@ -124,7 +124,7 @@
             // Year
             // 
             this.Year.AutoSize = true;
-            this.Year.Location = new System.Drawing.Point(221, 355);
+            this.Year.Location = new System.Drawing.Point(348, 471);
             this.Year.Name = "Year";
             this.Year.Size = new System.Drawing.Size(46, 17);
             this.Year.TabIndex = 2;
@@ -133,7 +133,7 @@
             // CourseType
             // 
             this.CourseType.AutoSize = true;
-            this.CourseType.Location = new System.Drawing.Point(221, 372);
+            this.CourseType.Location = new System.Drawing.Point(348, 488);
             this.CourseType.Name = "CourseType";
             this.CourseType.Size = new System.Drawing.Size(97, 17);
             this.CourseType.TabIndex = 2;
@@ -142,7 +142,7 @@
             // Grade
             // 
             this.Grade.AutoSize = true;
-            this.Grade.Location = new System.Drawing.Point(221, 304);
+            this.Grade.Location = new System.Drawing.Point(348, 420);
             this.Grade.Name = "Grade";
             this.Grade.Size = new System.Drawing.Size(56, 17);
             this.Grade.TabIndex = 2;
@@ -151,7 +151,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 422);
+            this.label1.Location = new System.Drawing.Point(9, 561);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 17);
             this.label1.TabIndex = 3;
@@ -160,7 +160,7 @@
             // GenEdCompletion
             // 
             this.GenEdCompletion.AutoSize = true;
-            this.GenEdCompletion.Location = new System.Drawing.Point(12, 443);
+            this.GenEdCompletion.Location = new System.Drawing.Point(9, 582);
             this.GenEdCompletion.Name = "GenEdCompletion";
             this.GenEdCompletion.Size = new System.Drawing.Size(84, 17);
             this.GenEdCompletion.TabIndex = 4;
@@ -169,7 +169,7 @@
             // CoreCompletion
             // 
             this.CoreCompletion.AutoSize = true;
-            this.CoreCompletion.Location = new System.Drawing.Point(102, 443);
+            this.CoreCompletion.Location = new System.Drawing.Point(99, 582);
             this.CoreCompletion.Name = "CoreCompletion";
             this.CoreCompletion.Size = new System.Drawing.Size(66, 17);
             this.CoreCompletion.TabIndex = 4;
@@ -178,7 +178,7 @@
             // ElectiveCompletion
             // 
             this.ElectiveCompletion.AutoSize = true;
-            this.ElectiveCompletion.Location = new System.Drawing.Point(174, 443);
+            this.ElectiveCompletion.Location = new System.Drawing.Point(171, 582);
             this.ElectiveCompletion.Name = "ElectiveCompletion";
             this.ElectiveCompletion.Size = new System.Drawing.Size(85, 17);
             this.ElectiveCompletion.TabIndex = 4;
@@ -188,7 +188,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 479);
+            this.ClientSize = new System.Drawing.Size(693, 608);
             this.Controls.Add(this.ElectiveCompletion);
             this.Controls.Add(this.CoreCompletion);
             this.Controls.Add(this.GenEdCompletion);
