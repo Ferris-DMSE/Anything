@@ -54,6 +54,21 @@ namespace StudentDataViewer.Models
             return list;
         }
 
+        public List<string> ListAllCoursesByStudent(object student)
+        {
+            var PreformatID = student.ToString().Split(';');
+            var Student = FindStudentByID(PreformatID[0]);
+            List<string> CourseList = new List<string>(); //Format: CourseName +  ", ID: " + CourseID
+            string CourseListViewName = "";
+            foreach (CourseStudent courseStudent in CourseStudents)
+            {
+                var tempcourse = FindCourseByID(courseStudent.CourseID);
+                CourseListViewName = tempcourse.CourseID + ", ID: " + Convert.ToString(tempcourse.CourseID);
+                CourseList.Add(CourseListViewName);
+            }
+            return CourseList;
+        }
+
         public Course FindCourseByID(int courseID)
         {
             foreach (Course course in Courses)
@@ -81,18 +96,11 @@ namespace StudentDataViewer.Models
         public Students FindAllStudents()
         {
             List<string> StudentList = new List<string>();
-            string StudentID = "";
-            string StudentFName = "";
-            string StudentLName = "";
             string StudentFormatCompiler = "";
             Students compiler = new Students();
             foreach (Student student in Students)
             {
-                StudentFName = student.FirstName;
-                StudentLName = student.LastName;
-                StudentFName = ", " + StudentFName;
-                StudentID = student.StudentID;
-                StudentFormatCompiler = StudentID + "; " + StudentLName + StudentFName;
+                StudentFormatCompiler = student.StudentID + "; " + student.LastName + ", " + student.FirstName;
                 StudentList.Add(StudentFormatCompiler);
             }
             compiler.ListViewStudentNames = StudentList;

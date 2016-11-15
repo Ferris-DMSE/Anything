@@ -15,6 +15,7 @@ namespace WindowsFormsApplication1
     public partial class Form1 : Form
     {
         Students StudentsListView = new Students();
+        List<string> CourseList = new List<string>();
         public Form1()
         {
             InitializeComponent();
@@ -25,6 +26,9 @@ namespace WindowsFormsApplication1
 
         private void StudentListView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var ds = new DataStore();
+            ProgramIndex programData = ds.LoadData();
+            CourseList = programData.ListAllCoursesByStudent(sender);
 
         }
 
