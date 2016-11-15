@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StudentDataViewer.Models;
+using StudentDataViewer.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +14,21 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+        Students StudentsListView = new Students();
         public Form1()
         {
             InitializeComponent();
+            var ds = new DataStore();
+            ProgramIndex programData = ds.LoadData();
+            StudentsListView = programData.FindAllStudents();
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void StudentListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CoursesListView_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

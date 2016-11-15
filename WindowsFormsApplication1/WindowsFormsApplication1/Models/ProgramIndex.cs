@@ -77,5 +77,26 @@ namespace StudentDataViewer.Models
             }
             return null;
         }
+
+        public Students FindAllStudents()
+        {
+            List<string> StudentList = new List<string>();
+            string StudentID = "";
+            string StudentFName = "";
+            string StudentLName = "";
+            string StudentFormatCompiler = "";
+            Students compiler = new Students();
+            foreach (Student student in Students)
+            {
+                StudentFName = student.FirstName;
+                StudentLName = student.LastName;
+                StudentFName = ", " + StudentFName;
+                StudentID = student.StudentID;
+                StudentFormatCompiler = StudentID + "; " + StudentLName + StudentFName;
+                StudentList.Add(StudentFormatCompiler);
+            }
+            compiler.ListViewStudentNames = StudentList;
+            return compiler;
+        }
     }
 }
