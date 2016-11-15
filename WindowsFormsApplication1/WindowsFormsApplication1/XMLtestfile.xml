@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<ProgramIndex xmlns="http://schemas.datacontract.org/2004/07/StudentDataViewer.Models">
+  <!-- NOTE to editors: Make sure that all of the listed properties are in the correct order. -->
+  <!-- For example, when adding another student to the file, make sure that the StudentID tag is -->
+  <!-- first before FirstName and LastName. -->
+  
+  <!-- ALSO, make sure to edit the src\StudentDataViewer\bin\Debug\XMLtestfile.xml or otherwise your changes will not show up. -->
+  <!-- OTHERWISE, if you edit the src\StudentDataViewer\XMLtestfile.xml make sure to rebuild the application. -->
+  <!-- Do note that rebuilding the application will overwrite the bin\Debug\XMLtestfile.xml with the src\StudentDataViewer\XMLtestfile.xml -->
+  <Students>
+    <Student>
+      <StudentID>0-00-111</StudentID>
+      <FirstName>Sally</FirstName>
+      <LastName>Esstaburger</LastName>
+    </Student>
+    <Student>
+      <StudentID>0-00-222</StudentID>
+      <FirstName>John</FirstName>
+      <LastName>Calhune</LastName>
+    </Student>
+  </Students>
+  <Courses>
+    <Course>
+      <CourseName>Principles of Macro Economics</CourseName>
+      <CourseID>020055</CourseID>
+      <CourseNumber>ECON-101</CourseNumber>
+      <Credit>4</Credit>
+      <Semester>Fall</Semester>
+      <Year>2016</Year>
+      <CourseType>General Education</CourseType>
+    </Course>
+    <Course>
+      <CourseName>Calculus 1</CourseName>
+      <CourseID>010666</CourseID>
+      <CourseNumber>MATH-311</CourseNumber>
+      <Credit>4</Credit>
+      <Semester>Winter</Semester>
+      <Year>2016</Year>
+      <CourseType>Core</CourseType>
+    </Course>
+  </Courses>
+ <CourseStudents>
+    <CourseStudent>
+      <Grade>B</Grade>
+      <StudentID>0-00-111</StudentID>
+      <CourseID>010666</CourseID>
+    </CourseStudent>
+    <CourseStudent>
+      <Grade>C</Grade>
+      <StudentID>0-00-222</StudentID>
+      <CourseID>020055</CourseID>
+    </CourseStudent>
+    <CourseStudent>
+      <Grade>A</Grade>
+      <StudentID>0-00-222</StudentID>
+      <CourseID>010666</CourseID>
+    </CourseStudent>
+  </CourseStudents>
+</ProgramIndex>
