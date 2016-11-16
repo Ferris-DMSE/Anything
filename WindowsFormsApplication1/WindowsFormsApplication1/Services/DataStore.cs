@@ -24,7 +24,7 @@ namespace StudentDataViewer.Services
         /// <returns>Returns a new <see cref="ProgramIndex"/> object with all of the data from XMLtestfile.xml prepopulated.</returns>
         public ProgramIndex LoadData()
         {
-            var stream = File.OpenRead("XMLtestfile.xml");
+            var stream = File.OpenRead("../../XMLtestfile.xml");
             ProgramIndex data = (ProgramIndex)dataContractSerializer.ReadObject(stream);
             stream.Close();
             return data;

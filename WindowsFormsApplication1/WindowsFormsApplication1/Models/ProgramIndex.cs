@@ -54,6 +54,61 @@ namespace StudentDataViewer.Models
             return list;
         }
 
+        public List<string> ListAllCoursesByStudent(object student_)
+        {
+            var PreformatID = student_.ToString().Split(';');
+            var Student = FindStudentByID(PreformatID[0]);
+            List<string> CourseList = new List<string>(); //Format: CourseName +  ", ID: " + CourseID
+            string CourseListViewName = "";
+            foreach (CourseStudent courseStudent in CourseStudents)
+            {
+                if (courseStudent.StudentID == PreformatID[0])
+                {
+                    var tempcourse = FindCourseByID(courseStudent.CourseID);
+                    CourseListViewName = tempcourse.CourseName + ", ID: " + Convert.ToString(tempcourse.CourseID);
+                    CourseList.Add(CourseListViewName);
+
+                }
+            }
+            return CourseList;
+        }
+        public int[] CompletionStatusPerType(object student_)
+        {
+            var PreformatID = student_.ToString().Split(';');
+            Student student = new Student();
+            student.StudentID = PreformatID[0];
+            int[] CompletionList = { 0, 0, 0 }; //GenEd, Core, Elective
+            List<CourseGrade> Grades = FindCoursesForStudent(student);
+            foreach (var course in Grades)
+            {
+                switch(course.Course.CourseType)
+                {
+                    case "General Education":
+                        if (CourseGradeCheck(course.Grade))
+                            CompletionList[0]++;
+                        break;
+                    case "core":
+                        if (CourseGradeCheck(course.Grade))
+                            CompletionList[1]++;
+                        break;
+                    case "Elective":
+                        if (CourseGradeCheck(course.Grade))
+                            CompletionList[2]++;
+                        break;
+                }
+            }
+            return CompletionList;
+        }
+
+        public bool CourseGradeCheck(string grade)
+        {
+            if (grade != "W" && grade != "I" && grade != "F")
+            {
+                return true;
+            }
+            return false;
+        }
+
         public Course FindCourseByID(int courseID)
         {
             foreach (Course course in Courses)
@@ -76,6 +131,20 @@ namespace StudentDataViewer.Models
                 }
             }
             return null;
+        }
+
+        public Students FindAllStudents()
+        {
+            List<string> StudentList = new List<string>();
+            string StudentFormatCompiler = "";
+            Students compiler = new Students();
+            foreach (Student student in Students)
+            {
+                StudentFormatCompiler = student.StudentID + "; " + student.LastName + ", " + student.FirstName;
+                StudentList.Add(StudentFormatCompiler);
+            }
+            compiler.ListViewStudentNames = StudentList;
+            return compiler;
         }
     }
 }
