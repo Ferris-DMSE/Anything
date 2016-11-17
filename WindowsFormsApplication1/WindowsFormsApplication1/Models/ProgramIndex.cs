@@ -89,41 +89,60 @@ namespace StudentDataViewer.Models
             }
             return CourseList;
         }
-        public int[] CompletionStatusPerType(object student_)
+        public double[] CompletionStatusPerType(string _student)
         {
-            var PreformatID = student_.ToString().Split(';');
-            Student student = new Student();
-            student.StudentID = PreformatID[0];
-            int[] CompletionList = { 0, 0, 0 }; //GenEd, Core, Elective
-            List<CourseGrade> Grades = FindCoursesForStudent(student);
-            foreach (var course in Grades)
+            var PreformatID = _student.Split(';');
+            var Student = FindStudentByID(PreformatID[0]);
+            List<string> CourseList = new List<string>(); //Format: CourseName +  ", ID: " + CourseID
+            double[] CompletionList = { 0, 0, 0 }; //GenEd, Core, Elective
+
+            foreach (CourseStudent courseStudent in CourseStudents)
             {
-                switch(course.Course.CourseType)
+                if (courseStudent.StudentID == PreformatID[0])
                 {
-                    case "General Education":
-                        if (CourseGradeCheck(course.Grade))
-                            CompletionList[0]++;
-                        break;
-                    case "core":
-                        if (CourseGradeCheck(course.Grade))
-                            CompletionList[1]++;
-                        break;
-                    case "Elective":
-                        if (CourseGradeCheck(course.Grade))
-                            CompletionList[2]++;
-                        break;
+                    string x = FindCourseByID(courseStudent.CourseID).CourseType;
+                    switch (x)
+                    {
+                        case "General Education":
+                            if (CourseGradeCheck(courseStudent.Grade))
+                                CompletionList[0] += 1;
+                            break;
+                        case "Core":
+                            if (CourseGradeCheck(courseStudent.Grade))
+                                CompletionList[1] += 1;
+                            break;
+                        case "Elective":
+                            if (CourseGradeCheck(courseStudent.Grade))
+                                CompletionList[2] += 1;
+                            break;
+                        default:
+                            for(int i = 0; i < 3; i++)
+                            {
+                                CompletionList[i] = 10 + CompletionList[i];
+                            }
+                            break;
+                    }
                 }
             }
+            CompletionList[0] = Math.Round(((CompletionList[0] / 8) * 100), 4);
+            CompletionList[1] = Math.Round(((CompletionList[1] / 26) * 100), 4);
+            CompletionList[2] = Math.Round(((CompletionList[2] / 8) * 100), 4);
             return CompletionList;
         }
 
         public bool CourseGradeCheck(string grade)
         {
-            if (grade != "W" && grade != "I" && grade != "F")
+            switch (grade)
             {
-                return true;
+                case "W":
+                    return false;
+                case "F":
+                    return false;
+                case "I":
+                    return false;
+                default:
+                    return true;
             }
-            return false;
         }
 
         public Course FindCourseByID(int courseID)
