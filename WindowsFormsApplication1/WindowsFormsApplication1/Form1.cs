@@ -76,6 +76,7 @@ namespace WindowsFormsApplication1
         private void CoursesListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             //find grades by using method OutputGrades(StudentListView.SelectedIndices[0].ToString().Split(';')[0], sender.ToString().Split(',')[1].Trim(' '));
+            //find all other course info by using method FindCourseByID(sender.ToString().Split(',')[1].Trim(' '));
         }
     }
 }
