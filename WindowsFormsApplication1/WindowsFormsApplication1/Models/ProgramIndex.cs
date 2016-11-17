@@ -54,16 +54,19 @@ namespace StudentDataViewer.Models
             return list;
         }
 
-        public string OutputGrade(string studentinfo)
+        public string OutputGrade(string studentinfo, int courseinfo)
         {
-            string ID = studentinfo.Split(';')[0];
             string grade = "";
             foreach (CourseStudent courseStudent in CourseStudents)
             {
-                if (courseStudent.StudentID == ID)
+                if (courseStudent.CourseID == courseinfo)
                 {
-                    grade = courseStudent.Grade;
+                    if (courseStudent.StudentID == studentinfo)
+                    {
+                        grade = courseStudent.Grade;
+                    }
                 }
+
             }
             return grade;
         }
