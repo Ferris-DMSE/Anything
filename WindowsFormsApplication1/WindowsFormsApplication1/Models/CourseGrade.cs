@@ -11,5 +11,10 @@ namespace StudentDataViewer.Models
     {
         public Course Course { get; set; }
         public string Grade { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Course} {Grade}";
+        }
     }
 }

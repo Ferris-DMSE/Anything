@@ -89,45 +89,21 @@ namespace StudentDataViewer.Models
             }
             return CourseList;
         }
-        public double[] CompletionStatusPerType(string _student)
-        {
-            var PreformatID = _student.Split(';');
-            var Student = FindStudentByID(PreformatID[0]);
-            List<string> CourseList = new List<string>(); //Format: CourseName +  ", ID: " + CourseID
-            double[] CompletionList = { 0, 0, 0 }; //GenEd, Core, Elective
 
-            foreach (CourseStudent courseStudent in CourseStudents)
+        private double AverageCompletion(IEnumerable<CourseGrade> courses)
+        {
+            return courses.Select(c => CourseGradeCheck(c.Grade) ? 100 : 0).DefaultIfEmpty().Average();
+        }
+
+        public double[] CompletionStatusPerType(List<CourseGrade> courses)
+        {
+            return new double[]
             {
-                if (courseStudent.StudentID == PreformatID[0])
-                {
-                    string x = FindCourseByID(courseStudent.CourseID).CourseType;
-                    switch (x)
-                    {
-                        case "General Education":
-                            if (CourseGradeCheck(courseStudent.Grade))
-                                CompletionList[0] += 1;
-                            break;
-                        case "Core":
-                            if (CourseGradeCheck(courseStudent.Grade))
-                                CompletionList[1] += 1;
-                            break;
-                        case "Elective":
-                            if (CourseGradeCheck(courseStudent.Grade))
-                                CompletionList[2] += 1;
-                            break;
-                        default:
-                            for(int i = 0; i < 3; i++)
-                            {
-                                CompletionList[i] = 10 + CompletionList[i];
-                            }
-                            break;
-                    }
-                }
-            }
-            CompletionList[0] = Math.Round(((CompletionList[0] / 8) * 100), 4);
-            CompletionList[1] = Math.Round(((CompletionList[1] / 26) * 100), 4);
-            CompletionList[2] = Math.Round(((CompletionList[2] / 8) * 100), 4);
-            return CompletionList;
+                AverageCompletion(courses.Where(c => c.Course.CourseType == "General Education")),
+                AverageCompletion(courses.Where(c => c.Course.CourseType == "Core")),
+                AverageCompletion(courses.Where(c => c.Course.CourseType == "Elective")),
+                AverageCompletion(courses)
+            };
         }
 
         public bool CourseGradeCheck(string grade)

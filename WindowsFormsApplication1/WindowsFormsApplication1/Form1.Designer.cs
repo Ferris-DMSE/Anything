@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.Students = new System.Windows.Forms.GroupBox();
-            this.StudentListView = new System.Windows.Forms.ListView();
             this.Courses = new System.Windows.Forms.GroupBox();
-            this.CoursesListView = new System.Windows.Forms.ListView();
             this.CourseID = new System.Windows.Forms.Label();
             this.CourseNumber = new System.Windows.Forms.Label();
             this.Credits = new System.Windows.Forms.Label();
@@ -43,13 +41,15 @@
             this.GenEdCompletion = new System.Windows.Forms.Label();
             this.CoreCompletion = new System.Windows.Forms.Label();
             this.ElectiveCompletion = new System.Windows.Forms.Label();
+            this.CoursesListBox = new System.Windows.Forms.ListBox();
+            this.StudentsListBox = new System.Windows.Forms.ListBox();
             this.Students.SuspendLayout();
             this.Courses.SuspendLayout();
             this.SuspendLayout();
             // 
             // Students
             // 
-            this.Students.Controls.Add(this.StudentListView);
+            this.Students.Controls.Add(this.StudentsListBox);
             this.Students.Location = new System.Drawing.Point(18, 19);
             this.Students.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Students.Name = "Students";
@@ -59,20 +59,9 @@
             this.Students.TabStop = false;
             this.Students.Text = "Students";
             // 
-            // StudentListView
-            // 
-            this.StudentListView.Location = new System.Drawing.Point(8, 33);
-            this.StudentListView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.StudentListView.MultiSelect = false;
-            this.StudentListView.Name = "StudentListView";
-            this.StudentListView.Size = new System.Drawing.Size(484, 807);
-            this.StudentListView.TabIndex = 0;
-            this.StudentListView.UseCompatibleStateImageBehavior = false;
-            this.StudentListView.SelectedIndexChanged += new System.EventHandler(this.StudentListView_SelectedIndexChanged);
-            // 
             // Courses
             // 
-            this.Courses.Controls.Add(this.CoursesListView);
+            this.Courses.Controls.Add(this.CoursesListBox);
             this.Courses.Location = new System.Drawing.Point(532, 19);
             this.Courses.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Courses.Name = "Courses";
@@ -81,18 +70,6 @@
             this.Courses.TabIndex = 1;
             this.Courses.TabStop = false;
             this.Courses.Text = "Courses";
-            // 
-            // CoursesListView
-            // 
-            this.CoursesListView.LabelWrap = false;
-            this.CoursesListView.Location = new System.Drawing.Point(8, 33);
-            this.CoursesListView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.CoursesListView.MultiSelect = false;
-            this.CoursesListView.Name = "CoursesListView";
-            this.CoursesListView.Size = new System.Drawing.Size(517, 535);
-            this.CoursesListView.TabIndex = 0;
-            this.CoursesListView.UseCompatibleStateImageBehavior = false;
-            this.CoursesListView.SelectedIndexChanged += new System.EventHandler(this.CoursesListView_SelectedIndexChanged);
             // 
             // CourseID
             // 
@@ -204,6 +181,26 @@
             this.ElectiveCompletion.TabIndex = 4;
             this.ElectiveCompletion.Text = "Elective: 0%";
             // 
+            // CoursesListBox
+            // 
+            this.CoursesListBox.FormattingEnabled = true;
+            this.CoursesListBox.ItemHeight = 25;
+            this.CoursesListBox.Location = new System.Drawing.Point(7, 39);
+            this.CoursesListBox.Name = "CoursesListBox";
+            this.CoursesListBox.Size = new System.Drawing.Size(512, 529);
+            this.CoursesListBox.TabIndex = 0;
+            this.CoursesListBox.SelectedIndexChanged += new System.EventHandler(this.CoursesListView_SelectedIndexChanged);
+            // 
+            // StudentsListBox
+            // 
+            this.StudentsListBox.FormattingEnabled = true;
+            this.StudentsListBox.ItemHeight = 25;
+            this.StudentsListBox.Location = new System.Drawing.Point(7, 30);
+            this.StudentsListBox.Name = "StudentsListBox";
+            this.StudentsListBox.Size = new System.Drawing.Size(490, 829);
+            this.StudentsListBox.TabIndex = 5;
+            this.StudentsListBox.SelectedIndexChanged += new System.EventHandler(this.StudentListView_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -236,7 +233,6 @@
 
         private System.Windows.Forms.GroupBox Students;
         private System.Windows.Forms.GroupBox Courses;
-        private System.Windows.Forms.ListView CoursesListView;
         private System.Windows.Forms.Label CourseID;
         private System.Windows.Forms.Label CourseNumber;
         private System.Windows.Forms.Label Credits;
@@ -244,11 +240,12 @@
         private System.Windows.Forms.Label Year;
         private System.Windows.Forms.Label CourseType;
         private System.Windows.Forms.Label Grade;
-        private System.Windows.Forms.ListView StudentListView;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label GenEdCompletion;
         private System.Windows.Forms.Label CoreCompletion;
         private System.Windows.Forms.Label ElectiveCompletion;
+        private System.Windows.Forms.ListBox StudentsListBox;
+        private System.Windows.Forms.ListBox CoursesListBox;
     }
 }
 

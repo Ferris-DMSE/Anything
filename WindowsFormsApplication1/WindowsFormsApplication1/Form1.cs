@@ -17,8 +17,16 @@ namespace WindowsFormsApplication1
         Students StudentsListView = new Students();
         List<string> CourseList = new List<string>();
         double[] Completioncheck = { 0, 0, 0 };
-        string[] Completionstringbase = { "Gen Ed: ", "Core: ", "Elective: " };
-        string[] courseStringBase = { "Course ID: ", "Course Number: ", "Grade: ", "Credits: ", "Semester: ", "Year: ", "Course Type: " };
+        private const string GenEd = "Gen Ed: ";
+        private const string Core = "Core: ";
+        private const string Elective = "Elective: ";
+        private const string CourseIDLabel = "Course ID: ";
+        private const string CourseNumberLabel = "Course Number: ";
+        private const string GradeLabel = "Grade: ";
+        private const string CreditsLabel = "Credits: ";
+        private const string SemesterLabel = "Semester: ";
+        private const string YearLabel = "Year: ";
+        private const string CourseTypeLabel = "Course Type: ";
         public Form1()
         {
             InitializeComponent();
@@ -26,63 +34,44 @@ namespace WindowsFormsApplication1
             ProgramIndex programData = ds.LoadData();
             StudentsListView = programData.FindAllStudents();
 
-            this.StudentListView.Items.Clear();
-            this.StudentListView.View = View.Details;
-            this.StudentListView.Columns.Add("Name");
-            this.StudentListView.Columns[0].Width = this.StudentListView.Width -
-            4;
-            this.StudentListView.HeaderStyle = ColumnHeaderStyle.None;
-            List<string> StudentList = StudentsListView.ListViewStudentNames;
-
-            foreach (string sStudent in StudentList)
-            {
-                StudentListView.Items.Add(sStudent);
-            }
-            this.CoursesListView.Items.Clear();
-            this.CoursesListView.View = View.Details;
-            this.CoursesListView.Columns.Add("Name");
-            this.CoursesListView.Columns[0].Width = this.StudentListView.Width -
-            4;
-            this.CoursesListView.HeaderStyle = ColumnHeaderStyle.None;
+            this.StudentsListBox.DataSource = programData.Students;
+            this.CoursesListBox.DataSource = new CourseGrade[0];
         }
 
         private void StudentListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (((ListView)sender).SelectedItems.Count == 0)
+            if (StudentsListBox.SelectedItems.Count == 0)
                 return;
             var ds = new DataStore();
             ProgramIndex programData = ds.LoadData();
-            CourseList = programData.ListAllCoursesByStudent(((ListView)sender).SelectedItems[0].Text);
-            Completioncheck = programData.CompletionStatusPerType(((ListView)sender).SelectedItems[0].Text);
-            GenEdCompletion.Text = Completionstringbase[0] + Completioncheck[0] + "%";
-            CoreCompletion.Text = Completionstringbase[1] + Completioncheck[1] + "%";
-            ElectiveCompletion.Text = Completionstringbase[2] + Completioncheck[2] + "%";
-            CoursesListView.Items.Clear();
-            CoursesListView.Items.AddRange(CourseList.Select(i => new ListViewItem(i)).ToArray());
-            CourseID.Text = courseStringBase[0];
-            CourseNumber.Text = courseStringBase[1];
-            Credits.Text = courseStringBase[3];
-            Semester.Text = courseStringBase[4];
-            Year.Text = courseStringBase[5];
-            CourseType.Text = courseStringBase[6];
-            Grade.Text = courseStringBase[2];
+            var student = (Student)StudentsListBox.SelectedItem;
+            if (student != null)
+            {
+                var courses = programData.FindCoursesForStudent(student);
+                CoursesListBox.DataSource = courses;
+                Completioncheck = programData.CompletionStatusPerType(courses);
+                GenEdCompletion.Text = GenEd + Completioncheck[0] + "%";
+                CoreCompletion.Text = Core + Completioncheck[1] + "%";
+                ElectiveCompletion.Text = Elective + Completioncheck[2] + "%";
+            }
         }
 
         private void CoursesListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (((ListView)sender).SelectedItems.Count == 0)
+            if (CoursesListBox.SelectedItems.Count == 0)
                 return;
-            var ds = new DataStore();
-            ProgramIndex programData = ds.LoadData();
-            string result = ((ListView)sender).SelectedItems[0].ToString().Split(':')[2].Trim(' ','}');
-            Course c = programData.FindCourseByID(int.Parse(result));
-            CourseID.Text = courseStringBase[0] + c.CourseID.ToString();
-            CourseNumber.Text = courseStringBase[1] + c.CourseNumber;
-            Credits.Text = courseStringBase[3] + c.Credit.ToString();
-            Semester.Text = courseStringBase[4] + c.Semester.ToString();
-            Year.Text = courseStringBase[5] + c.Year.ToString();
-            CourseType.Text = courseStringBase[6] + c.CourseType;
-            Grade.Text = courseStringBase[2] + programData.OutputGrade(StudentListView.SelectedItems[0].Text.Split(';')[0].Trim('{'), int.Parse(result));
+            var course = (CourseGrade)CoursesListBox.SelectedItem;
+            if (course != null)
+            {
+                Course c = course.Course;
+                CourseID.Text = CourseIDLabel + c.CourseID.ToString();
+                CourseNumber.Text = CourseNumberLabel + c.CourseNumber;
+                Credits.Text = CreditsLabel + c.Credit.ToString();
+                Semester.Text = SemesterLabel + c.Semester.ToString();
+                Year.Text = YearLabel + c.Year.ToString();
+                CourseType.Text = CourseTypeLabel + c.CourseType;
+                Grade.Text = GradeLabel + course.Grade;
+            }
 
         }
     }

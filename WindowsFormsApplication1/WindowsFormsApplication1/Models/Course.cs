@@ -66,5 +66,10 @@ namespace StudentDataViewer.Models
         /// </summary>
         [DataMember(Order = 6)]
         public string CourseType { get; set; }
+
+        public override string ToString()
+        {
+            return $"{CourseID}: {Year} {Semester} {CourseNumber} {CourseName}";
+        }
     }
 }
