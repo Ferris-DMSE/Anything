@@ -59,6 +59,8 @@ namespace WindowsFormsApplication1
 
         private void StudentListView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (((ListView)sender).SelectedItems.Count == 0)
+                return;
             var ds = new DataStore();
             ProgramIndex programData = ds.LoadData();
             CourseList = programData.ListAllCoursesByStudent(((ListView)sender).SelectedItems[0].Text);
