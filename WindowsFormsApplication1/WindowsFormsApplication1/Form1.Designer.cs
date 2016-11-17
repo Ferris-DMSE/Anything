@@ -50,18 +50,22 @@
             // Students
             // 
             this.Students.Controls.Add(this.StudentListView);
-            this.Students.Location = new System.Drawing.Point(12, 12);
+            this.Students.Location = new System.Drawing.Point(9, 10);
+            this.Students.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Students.Name = "Students";
-            this.Students.Size = new System.Drawing.Size(336, 546);
+            this.Students.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Students.Size = new System.Drawing.Size(252, 444);
             this.Students.TabIndex = 0;
             this.Students.TabStop = false;
             this.Students.Text = "Students";
             // 
             // StudentListView
             // 
-            this.StudentListView.Location = new System.Drawing.Point(6, 21);
+            this.StudentListView.Location = new System.Drawing.Point(4, 17);
+            this.StudentListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.StudentListView.MultiSelect = false;
             this.StudentListView.Name = "StudentListView";
-            this.StudentListView.Size = new System.Drawing.Size(324, 519);
+            this.StudentListView.Size = new System.Drawing.Size(244, 422);
             this.StudentListView.TabIndex = 0;
             this.StudentListView.UseCompatibleStateImageBehavior = false;
             this.StudentListView.SelectedIndexChanged += new System.EventHandler(this.StudentListView_SelectedIndexChanged);
@@ -69,18 +73,23 @@
             // Courses
             // 
             this.Courses.Controls.Add(this.CoursesListView);
-            this.Courses.Location = new System.Drawing.Point(354, 12);
+            this.Courses.Location = new System.Drawing.Point(266, 10);
+            this.Courses.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Courses.Name = "Courses";
-            this.Courses.Size = new System.Drawing.Size(269, 371);
+            this.Courses.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Courses.Size = new System.Drawing.Size(202, 301);
             this.Courses.TabIndex = 1;
             this.Courses.TabStop = false;
             this.Courses.Text = "Courses";
             // 
             // CoursesListView
             // 
-            this.CoursesListView.Location = new System.Drawing.Point(6, 21);
+            this.CoursesListView.LabelWrap = false;
+            this.CoursesListView.Location = new System.Drawing.Point(4, 17);
+            this.CoursesListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CoursesListView.MultiSelect = false;
             this.CoursesListView.Name = "CoursesListView";
-            this.CoursesListView.Size = new System.Drawing.Size(257, 344);
+            this.CoursesListView.Size = new System.Drawing.Size(194, 280);
             this.CoursesListView.TabIndex = 0;
             this.CoursesListView.UseCompatibleStateImageBehavior = false;
             this.CoursesListView.SelectedIndexChanged += new System.EventHandler(this.CoursesListView_SelectedIndexChanged);
@@ -88,107 +97,118 @@
             // CourseID
             // 
             this.CourseID.AutoSize = true;
-            this.CourseID.Location = new System.Drawing.Point(348, 386);
+            this.CourseID.Location = new System.Drawing.Point(261, 314);
+            this.CourseID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CourseID.Name = "CourseID";
-            this.CourseID.Size = new System.Drawing.Size(78, 17);
+            this.CourseID.Size = new System.Drawing.Size(60, 13);
             this.CourseID.TabIndex = 2;
             this.CourseID.Text = "Course ID: ";
             // 
             // CourseNumber
             // 
             this.CourseNumber.AutoSize = true;
-            this.CourseNumber.Location = new System.Drawing.Point(348, 403);
+            this.CourseNumber.Location = new System.Drawing.Point(261, 327);
+            this.CourseNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CourseNumber.Name = "CourseNumber";
-            this.CourseNumber.Size = new System.Drawing.Size(115, 17);
+            this.CourseNumber.Size = new System.Drawing.Size(86, 13);
             this.CourseNumber.TabIndex = 2;
             this.CourseNumber.Text = "Course Number: ";
             // 
             // Credits
             // 
             this.Credits.AutoSize = true;
-            this.Credits.Location = new System.Drawing.Point(348, 437);
+            this.Credits.Location = new System.Drawing.Point(261, 355);
+            this.Credits.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Credits.Name = "Credits";
-            this.Credits.Size = new System.Drawing.Size(60, 17);
+            this.Credits.Size = new System.Drawing.Size(45, 13);
             this.Credits.TabIndex = 2;
             this.Credits.Text = "Credits: ";
             // 
             // Semester
             // 
             this.Semester.AutoSize = true;
-            this.Semester.Location = new System.Drawing.Point(348, 454);
+            this.Semester.Location = new System.Drawing.Point(261, 369);
+            this.Semester.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Semester.Name = "Semester";
-            this.Semester.Size = new System.Drawing.Size(76, 17);
+            this.Semester.Size = new System.Drawing.Size(57, 13);
             this.Semester.TabIndex = 2;
             this.Semester.Text = "Semester: ";
             // 
             // Year
             // 
             this.Year.AutoSize = true;
-            this.Year.Location = new System.Drawing.Point(348, 471);
+            this.Year.Location = new System.Drawing.Point(261, 383);
+            this.Year.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Year.Name = "Year";
-            this.Year.Size = new System.Drawing.Size(46, 17);
+            this.Year.Size = new System.Drawing.Size(35, 13);
             this.Year.TabIndex = 2;
             this.Year.Text = "Year: ";
             // 
             // CourseType
             // 
             this.CourseType.AutoSize = true;
-            this.CourseType.Location = new System.Drawing.Point(348, 488);
+            this.CourseType.Location = new System.Drawing.Point(261, 396);
+            this.CourseType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CourseType.Name = "CourseType";
-            this.CourseType.Size = new System.Drawing.Size(97, 17);
+            this.CourseType.Size = new System.Drawing.Size(73, 13);
             this.CourseType.TabIndex = 2;
             this.CourseType.Text = "Course Type: ";
             // 
             // Grade
             // 
             this.Grade.AutoSize = true;
-            this.Grade.Location = new System.Drawing.Point(348, 420);
+            this.Grade.Location = new System.Drawing.Point(261, 341);
+            this.Grade.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Grade.Name = "Grade";
-            this.Grade.Size = new System.Drawing.Size(56, 17);
+            this.Grade.Size = new System.Drawing.Size(42, 13);
             this.Grade.TabIndex = 2;
             this.Grade.Text = "Grade: ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 561);
+            this.label1.Location = new System.Drawing.Point(7, 456);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 17);
+            this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Completion";
             // 
             // GenEdCompletion
             // 
             this.GenEdCompletion.AutoSize = true;
-            this.GenEdCompletion.Location = new System.Drawing.Point(9, 582);
+            this.GenEdCompletion.Location = new System.Drawing.Point(7, 473);
+            this.GenEdCompletion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.GenEdCompletion.Name = "GenEdCompletion";
-            this.GenEdCompletion.Size = new System.Drawing.Size(84, 17);
+            this.GenEdCompletion.Size = new System.Drawing.Size(63, 13);
             this.GenEdCompletion.TabIndex = 4;
             this.GenEdCompletion.Text = "Gen Ed: 0%";
             // 
             // CoreCompletion
             // 
             this.CoreCompletion.AutoSize = true;
-            this.CoreCompletion.Location = new System.Drawing.Point(112, 582);
+            this.CoreCompletion.Location = new System.Drawing.Point(84, 473);
+            this.CoreCompletion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CoreCompletion.Name = "CoreCompletion";
-            this.CoreCompletion.Size = new System.Drawing.Size(66, 17);
+            this.CoreCompletion.Size = new System.Drawing.Size(49, 13);
             this.CoreCompletion.TabIndex = 4;
             this.CoreCompletion.Text = "Core: 0%";
             // 
             // ElectiveCompletion
             // 
             this.ElectiveCompletion.AutoSize = true;
-            this.ElectiveCompletion.Location = new System.Drawing.Point(197, 582);
+            this.ElectiveCompletion.Location = new System.Drawing.Point(148, 473);
+            this.ElectiveCompletion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ElectiveCompletion.Name = "ElectiveCompletion";
-            this.ElectiveCompletion.Size = new System.Drawing.Size(85, 17);
+            this.ElectiveCompletion.Size = new System.Drawing.Size(65, 13);
             this.ElectiveCompletion.TabIndex = 4;
             this.ElectiveCompletion.Text = "Elective: 0%";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(693, 608);
+            this.ClientSize = new System.Drawing.Size(520, 494);
             this.Controls.Add(this.ElectiveCompletion);
             this.Controls.Add(this.CoreCompletion);
             this.Controls.Add(this.GenEdCompletion);
@@ -202,8 +222,10 @@
             this.Controls.Add(this.CourseID);
             this.Controls.Add(this.Courses);
             this.Controls.Add(this.Students);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.Students.ResumeLayout(false);
             this.Courses.ResumeLayout(false);
             this.ResumeLayout(false);

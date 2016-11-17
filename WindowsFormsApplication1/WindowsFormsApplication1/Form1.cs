@@ -18,6 +18,7 @@ namespace WindowsFormsApplication1
         List<string> CourseList = new List<string>();
         int[] Completioncheck = { 0, 0, 0 };
         string[] Completionstringbase = { "Gen Ed: ", "Core: ", "Elective: " };
+        string[] courseStringBase = { "Course ID: ", "Course Number: ", "Grade: ", "Credits: ", "Semester: ", "Year: ", "Course Type: " };
         public Form1()
         {
             InitializeComponent();
@@ -60,8 +61,8 @@ namespace WindowsFormsApplication1
         {
             var ds = new DataStore();
             ProgramIndex programData = ds.LoadData();
-            CourseList = programData.ListAllCoursesByStudent(sender);
-            Completioncheck = programData.CompletionStatusPerType(sender);
+            CourseList = programData.ListAllCoursesByStudent(((ListView)sender).SelectedItems[0].Text);
+            Completioncheck = programData.CompletionStatusPerType(((ListView)sender).SelectedItems[0].Text);
             GenEdCompletion.Text = Completionstringbase[0] + Completioncheck[0];
             CoreCompletion.Text = Completionstringbase[1] + Completioncheck[1];
             ElectiveCompletion.Text = Completionstringbase[2] + Completioncheck[2];
@@ -70,13 +71,28 @@ namespace WindowsFormsApplication1
             {
                 CoursesListView.Items.Add(sCourse);
             }
+            CoursesListView.Refresh();
 
         }
 
         private void CoursesListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //find grades by using method OutputGrades(StudentListView.SelectedIndices[0].ToString().Split(';')[0], sender.ToString().Split(',')[1].Trim(' '));
-            //find all other course info by using method FindCourseByID(sender.ToString().Split(',')[1].Trim(' '));
+            var ds = new DataStore();
+            ProgramIndex programData = ds.LoadData();
+            string result = ((ListView)sender).SelectedItems[0].ToString().Split(':')[2].Trim(' ','}');
+            Grade.Text = courseStringBase[2] + programData.OutputGrade(StudentListView.SelectedItems[0].Text.Split(';')[0].Trim('{'), int.Parse(result));
+            Course c = programData.FindCourseByID(int.Parse(result));
+            CourseID.Text = courseStringBase[0] + c.CourseID.ToString();
+            CourseNumber.Text = courseStringBase[1] + c.CourseNumber;
+            Credits.Text = courseStringBase[3] + c.Credit.ToString();
+            Semester.Text = courseStringBase[4] + c.Semester.ToString();
+            Year.Text = courseStringBase[5] + c.Year.ToString();
+            CourseType.Text = courseStringBase[6] + c.CourseType;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

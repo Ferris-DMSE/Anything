@@ -59,9 +59,9 @@ namespace StudentDataViewer.Models
             string grade = "";
             foreach (CourseStudent courseStudent in CourseStudents)
             {
-                if (courseStudent.CourseID == courseinfo)
+                if (courseStudent.CourseID.Equals(courseinfo))
                 {
-                    if (courseStudent.StudentID == studentinfo)
+                    if (courseStudent.StudentID.Equals(studentinfo))
                     {
                         grade = courseStudent.Grade;
                     }
