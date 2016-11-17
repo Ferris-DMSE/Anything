@@ -3,7 +3,7 @@
   <!-- NOTE to editors: Make sure that all of the listed properties are in the correct order. -->
   <!-- For example, when adding another student to the file, make sure that the StudentID tag is -->
   <!-- first before FirstName and LastName. -->
-  
+
   <!-- ALSO, make sure to edit the src\StudentDataViewer\bin\Debug\XMLtestfile.xml or otherwise your changes will not show up. -->
   <!-- OTHERWISE, if you edit the src\StudentDataViewer\XMLtestfile.xml make sure to rebuild the application. -->
   <!-- Do note that rebuilding the application will overwrite the bin\Debug\XMLtestfile.xml with the src\StudentDataViewer\XMLtestfile.xml -->
@@ -17,6 +17,11 @@
       <StudentID>0-00-222</StudentID>
       <FirstName>John</FirstName>
       <LastName>Calhune</LastName>
+    </Student>
+    <Student>
+      <StudentID>0-00-333</StudentID>
+      <FirstName>Bob</FirstName>
+      <LastName>Dale</LastName>
     </Student>
   </Students>
   <Courses>
@@ -39,7 +44,7 @@
       <CourseType>Core</CourseType>
     </Course>
   </Courses>
- <CourseStudents>
+  <CourseStudents>
     <CourseStudent>
       <Grade>B</Grade>
       <StudentID>0-00-111</StudentID>
