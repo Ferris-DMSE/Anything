@@ -54,6 +54,20 @@ namespace StudentDataViewer.Models
             return list;
         }
 
+        public string OutputGrade(string studentinfo)
+        {
+            string ID = studentinfo.Split(';')[0];
+            string grade = "";
+            foreach (CourseStudent courseStudent in CourseStudents)
+            {
+                if (courseStudent.StudentID == ID)
+                {
+                    grade = courseStudent.Grade;
+                }
+            }
+            return grade;
+        }
+
         public List<string> ListAllCoursesByStudent(object student_)
         {
             var PreformatID = student_.ToString().Split(';');
