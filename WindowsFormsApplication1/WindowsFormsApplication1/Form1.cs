@@ -22,6 +22,36 @@ namespace WindowsFormsApplication1
             var ds = new DataStore();
             ProgramIndex programData = ds.LoadData();
             StudentsListView = programData.FindAllStudents();
+            //StudentListView.Columns.Clear();
+            //StudentListView.Columns.Add("Students", 32, HorizontalAlignment.Left);
+
+            this.StudentListView.Items.Clear();
+            this.StudentListView.View = View.Details;
+            this.StudentListView.Columns.Add("Name");
+            this.StudentListView.Columns[0].Width = this.StudentListView.Width -
+            4;
+            this.StudentListView.HeaderStyle = ColumnHeaderStyle.None;
+
+            /*this.CoursesListView.Items.Clear();
+            this.CoursesListView.View = View.Details;
+            this.CoursesListView.Columns.Add("Name");
+            this.CoursesListView.Columns[0].Width = this.CoursesListView.Width -
+            4;
+            this.CoursesListView.HeaderStyle = ColumnHeaderStyle.None;*/
+
+            //StudentListView.Items.Add("student name");
+            List<string> StudentList = StudentsListView.ListViewStudentNames;
+            /*for (int i = 0; i < StudentList.Count; i++)
+            {
+                //string StudentName = StudentList[i].Split(';')[1].Trim();
+                //StudentListView.Items.Add(StudentName);
+                StudentListView.Items.Add(StudentList[i]);
+            }*/
+
+            foreach (string sStudent in StudentList)
+            {
+                StudentListView.Items.Add(sStudent);
+            }
         }
 
         private void StudentListView_SelectedIndexChanged(object sender, EventArgs e)
@@ -29,6 +59,11 @@ namespace WindowsFormsApplication1
             var ds = new DataStore();
             ProgramIndex programData = ds.LoadData();
             CourseList = programData.ListAllCoursesByStudent(sender);
+            CoursesListView.Clear();
+            foreach (string sCourse in CourseList)
+            {
+                CoursesListView.Items.Add(sCourse);
+            }
 
         }
 
