@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Xml;
 
@@ -36,5 +37,9 @@ namespace StudentDataViewer.Models
         /// </summary>
         [DataMember(Order = 0)]
         public string StudentID { get; set; }
+    }
+    public class Students
+    {
+        public List<string> ListViewStudentNames { get; set; }
     }
 }
