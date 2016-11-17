@@ -16,6 +16,8 @@ namespace WindowsFormsApplication1
     {
         Students StudentsListView = new Students();
         List<string> CourseList = new List<string>();
+        int[] Completioncheck = { 0, 0, 0 };
+        string[] Completionstringbase = { "Gen Ed: ", "Core: ", "Elective: " };
         public Form1()
         {
             InitializeComponent();
@@ -59,6 +61,10 @@ namespace WindowsFormsApplication1
             var ds = new DataStore();
             ProgramIndex programData = ds.LoadData();
             CourseList = programData.ListAllCoursesByStudent(sender);
+            Completioncheck = programData.CompletionStatusPerType(sender);
+            GenEdCompletion.Text = Completionstringbase[0] + Completioncheck[0];
+            CoreCompletion.Text = Completionstringbase[1] + Completioncheck[1];
+            ElectiveCompletion.Text = Completionstringbase[2] + Completioncheck[2];
             CoursesListView.Clear();
             foreach (string sCourse in CourseList)
             {
