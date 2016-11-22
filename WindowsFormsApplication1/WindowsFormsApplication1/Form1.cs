@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApplication1.Services;
 
 namespace WindowsFormsApplication1
 {
@@ -77,7 +78,10 @@ namespace WindowsFormsApplication1
             var result = SaveFileDialog.ShowDialog(this);
             if (result == DialogResult.OK || result == DialogResult.Yes)
             {
-                MessageBox.Show($"Printing to file: {SaveFileDialog.FileName}.");
+                var service = new PrintingService();
+                var fileName = SaveFileDialog.FileName;
+                service.Print(fileName, programData);
+                MessageBox.Show($"{fileName} has been created.");
             }
         }
     }
