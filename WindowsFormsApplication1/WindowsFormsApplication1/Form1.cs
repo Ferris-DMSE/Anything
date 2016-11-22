@@ -14,9 +14,8 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
-        Students StudentsListView = new Students();
-        List<string> CourseList = new List<string>();
         double[] Completioncheck = { 0, 0, 0 };
+        private readonly ProgramIndex programData;
         private const string GenEd = "Gen Ed: ";
         private const string Core = "Core: ";
         private const string Elective = "Elective: ";
@@ -31,8 +30,7 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             var ds = new DataStore();
-            ProgramIndex programData = ds.LoadData();
-            StudentsListView = programData.FindAllStudents();
+            programData = ds.LoadData();
 
             this.StudentsListBox.DataSource = programData.Students;
             this.CoursesListBox.DataSource = new CourseGrade[0];
@@ -43,7 +41,6 @@ namespace WindowsFormsApplication1
             if (StudentsListBox.SelectedItems.Count == 0)
                 return;
             var ds = new DataStore();
-            ProgramIndex programData = ds.LoadData();
             var student = (Student)StudentsListBox.SelectedItem;
             if (student != null)
             {
@@ -64,15 +61,24 @@ namespace WindowsFormsApplication1
             if (course != null)
             {
                 Course c = course.Course;
-                CourseID.Text = CourseIDLabel + c.CourseID.ToString();
+                CourseID.Text = CourseIDLabel + c.CourseID;
                 CourseNumber.Text = CourseNumberLabel + c.CourseNumber;
-                Credits.Text = CreditsLabel + c.Credit.ToString();
-                Semester.Text = SemesterLabel + c.Semester.ToString();
-                Year.Text = YearLabel + c.Year.ToString();
+                Credits.Text = CreditsLabel + c.Credit;
+                Semester.Text = SemesterLabel + c.Semester;
+                Year.Text = YearLabel + c.Year;
                 CourseType.Text = CourseTypeLabel + c.CourseType;
                 Grade.Text = GradeLabel + course.Grade;
             }
 
+        }
+
+        private void PrintButton_Click(object sender, EventArgs e)
+        {
+            var result = SaveFileDialog.ShowDialog(this);
+            if (result == DialogResult.OK || result == DialogResult.Yes)
+            {
+                MessageBox.Show($"Printing to file: {SaveFileDialog.FileName}.");
+            }
         }
     }
 }
