@@ -13,7 +13,7 @@ namespace StudentDataViewer.Services
     /// Defines a class that is able to load our <see cref="ProgramIndex"/>
     /// data model from the XMLtestfile.xml file.
     /// </summary>
-    public class DataStore
+    public class DataStore : IDataStore
     {
         DataContractSerializer dataContractSerializer = new DataContractSerializer(typeof(ProgramIndex));
 
