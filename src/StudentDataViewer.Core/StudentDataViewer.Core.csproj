@@ -109,6 +109,8 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DataStore.cs" />
+    <Compile Include="ViewModels\CourseViewModel.cs" />
+    <Compile Include="ViewModels\StudentViewModel.cs" />
     <EmbeddedResource Include="Properties\StudentDataViewer.Core.rd.xml" />
   </ItemGroup>
   <ItemGroup>
