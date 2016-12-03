@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentDataViewer.Portable"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentDataViewer.Windows", "StudentDataViewer.Windows\StudentDataViewer.Windows.csproj", "{8C45ECEB-30A7-40B0-98F1-649B23539141}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentDataViewer.Windows.Test", "StudentDataViewer.Windows.Test\StudentDataViewer.Windows.Test.csproj", "{AAC2B72D-106D-4410-B183-F00739578C85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,26 @@ Global
 		{8C45ECEB-30A7-40B0-98F1-649B23539141}.Release|x86.ActiveCfg = Release|x86
 		{8C45ECEB-30A7-40B0-98F1-649B23539141}.Release|x86.Build.0 = Release|x86
 		{8C45ECEB-30A7-40B0-98F1-649B23539141}.Release|x86.Deploy.0 = Release|x86
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Debug|ARM.ActiveCfg = Debug|ARM
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Debug|ARM.Build.0 = Debug|ARM
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Debug|ARM.Deploy.0 = Debug|ARM
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Debug|x64.ActiveCfg = Debug|x64
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Debug|x64.Build.0 = Debug|x64
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Debug|x64.Deploy.0 = Debug|x64
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Debug|x86.ActiveCfg = Debug|x86
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Debug|x86.Build.0 = Debug|x86
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Debug|x86.Deploy.0 = Debug|x86
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Release|Any CPU.ActiveCfg = Release|x86
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Release|ARM.ActiveCfg = Release|ARM
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Release|ARM.Build.0 = Release|ARM
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Release|ARM.Deploy.0 = Release|ARM
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Release|x64.ActiveCfg = Release|x64
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Release|x64.Build.0 = Release|x64
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Release|x64.Deploy.0 = Release|x64
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Release|x86.ActiveCfg = Release|x86
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Release|x86.Build.0 = Release|x86
+		{AAC2B72D-106D-4410-B183-F00739578C85}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
