@@ -5,9 +5,113 @@
     xmlns:local="using:StudentDataViewer.Windows"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    xmlns:viewModels="using:StudentDataViewer.Windows.ViewModels"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition/>
+        </TransitionCollection>
+    </Page.Transitions>
+    <Page.Resources>
+        <DataTemplate x:Key="MasterListViewItemTemplate" x:DataType="viewModels:StudentViewModel">
+            <Grid Margin="0,11,0,13">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{x:Bind FullName}"/>
+                </StackPanel>
+                <TextBlock
+                    Grid.Row="1" 
+                    FontSize="13"
+                    Text="{x:Bind Student.StudentID}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DetailContentTemplate" x:DataType="viewModels:StudentViewModel">
+            <StackPanel>
+                <TextBlock
+                    Margin="8,0"
+                    Style="{ThemeResource TitleTextBlockStyle}"
+                    HorizontalAlignment="Left"
+                    Text="{x:Bind Student.FirstName}"/>
+
+                <TextBlock
+                    Margin="8,0"
+                    HorizontalAlignment="Left"
+                    Text="{x:Bind Courses.Count}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid x:Name="LayoutRoot" Loaded="LayoutRoot_Loaded">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="AdaptiveStates" CurrentStateChanged="AdaptiveStates_OnCurrentStateChanged">
+                <VisualState x:Name="DefaultState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MasterColumn.Width" Value="*"/>
+                        <Setter Target="DetailColumn.Width" Value="0"/>
+                        <Setter Target="MasterListView.SelectionMode" Value="None"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="MasterColumn" Width="Auto"/>
+            <ColumnDefinition x:Name="DetailColumn" Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock 
+            Text="Students" 
+            Margin="12,8,8,8" 
+            Style="{ThemeResource TitleTextBlockStyle}"/>
+
+        <ListView x:Name="MasterListView"
+                  Grid.Column="0"
+                  Grid.Row="1"
+                  ItemContainerTransitions="{x:Null}"
+                  ItemTemplate="{StaticResource MasterListViewItemTemplate}"
+                  MinWidth="320"
+                  IsItemClickEnabled="True"
+                  ItemClick="MasterListView_OnItemClick">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+        <ContentPresenter x:Name="DetailContentPresenter"
+                          Grid.Column="1"
+                          Grid.Row="0"
+                          Grid.RowSpan="2"
+                          BorderThickness="1,0,0,0"
+                          Padding="24,0"
+                          BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
+                          Content="{x:Bind MasterListView.SelectedItem, Mode=OneWay}"
+                          ContentTemplate="{StaticResource DetailContentTemplate}">
+            <ContentPresenter.ContentTransitions>
+                <TransitionCollection/>
+            </ContentPresenter.ContentTransitions>
+        </ContentPresenter>
 
     </Grid>
 </Page>
