@@ -102,6 +102,7 @@
     <Compile Include="StudentDetailPage.xaml.cs">
       <DependentUpon>StudentDetailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\CourseViewModel.cs" />
     <Compile Include="ViewModels\StudentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

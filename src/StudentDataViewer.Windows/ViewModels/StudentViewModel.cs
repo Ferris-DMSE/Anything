@@ -16,6 +16,10 @@ namespace StudentDataViewer.Windows.ViewModels
             {
                 Student = student,
                 Courses = courseGrades
+                    .Select(CourseViewModel.FromCourseGrade)
+                    .OrderBy(c => c.Model.Course.Year)
+                    .ThenBy(c => c.Model.Grade)
+                    .ToList()
             };
         }
 
@@ -25,8 +29,8 @@ namespace StudentDataViewer.Windows.ViewModels
             return FromDataAndStudent(data, student);
         }
 
-        public List<CourseGrade> Courses { get; set; }
-        public Student Student { get; set; }
+        public List<CourseViewModel> Courses { get; private set; }
+        public Student Student { get; private set; }
         public string FullName => $"{Student.FirstName} {Student.LastName}";
     }
 }

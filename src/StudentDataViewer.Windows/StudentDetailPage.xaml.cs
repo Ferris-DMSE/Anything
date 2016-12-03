@@ -117,7 +117,7 @@ namespace StudentDataViewer.Windows
             }
             else
             {
-                FindName("RootPanel");
+                FindName("RootGrid");
             }
 
             Window.Current.SizeChanged += Window_SizeChanged;
