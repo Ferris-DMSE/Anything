@@ -94,10 +94,13 @@
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
                     Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
                     Margin="8,0"
                     Style="{ThemeResource HeaderTextBlockStyle}"
                     HorizontalAlignment="Left"
@@ -105,6 +108,8 @@
 
                 <TextBlock
                     Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
                     Margin="8,0,8,4"
                     Style="{ThemeResource SubtitleTextBlockStyle}"
                     HorizontalAlignment="Left"
@@ -112,6 +117,30 @@
 
                 <TextBlock
                     Grid.Row="2"
+                    Grid.Column="0"
+                    Margin="8,0"
+                    HorizontalAlignment="Left"
+                    Text="Courses"
+                    Style="{ThemeResource SubheaderTextBlockStyle}"/>
+
+                <ListView
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    x:Name="Courses"
+                    HorizontalAlignment="Stretch"
+                    SelectionMode="None"
+                    ItemsSource="{x:Bind Courses}"
+                    ItemTemplate="{StaticResource CourseItemTemplate}">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+                
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="1"
                     Margin="8,0"
                     HorizontalAlignment="Left"
                     Text="Completion Status"
@@ -119,6 +148,7 @@
 
                 <Grid
                     Grid.Row="3"
+                    Grid.Column="1"
                     Margin="8,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -169,27 +199,6 @@
                         FontWeight="Bold"
                         Text="{x:Bind AverageTotalCompletion}"/>
                 </Grid>
-
-                <TextBlock
-                    Grid.Row="4"
-                    Margin="8,0"
-                    HorizontalAlignment="Left"
-                    Text="Courses"
-                    Style="{ThemeResource SubheaderTextBlockStyle}"/>
-
-                <ListView
-                    Grid.Row="5"
-                    x:Name="Courses"
-                    HorizontalAlignment="Stretch"
-                    SelectionMode="None"
-                    ItemsSource="{x:Bind Courses}"
-                    ItemTemplate="{StaticResource CourseItemTemplate}">
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                </ListView>
             </Grid>
         </DataTemplate>
     </Page.Resources>
@@ -198,7 +207,7 @@
             <VisualStateGroup x:Name="AdaptiveStates" CurrentStateChanged="AdaptiveStates_OnCurrentStateChanged">
                 <VisualState x:Name="DefaultState">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="720"/>
+                        <AdaptiveTrigger MinWindowWidth="1080"/>
                     </VisualState.StateTriggers>
                 </VisualState>
                 <VisualState x:Name="NarrowState">

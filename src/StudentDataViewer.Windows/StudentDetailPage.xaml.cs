@@ -106,7 +106,7 @@ namespace StudentDataViewer.Windows
 
         private bool ShouldGoToWideState()
         {
-            return Window.Current.Bounds.Width >= 720;
+            return Window.Current.Bounds.Width >= 1080;
         }
 
         private void StudentDetailPage_OnLoaded(object sender, RoutedEventArgs e)
