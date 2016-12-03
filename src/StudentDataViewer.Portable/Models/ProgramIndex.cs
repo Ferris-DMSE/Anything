@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using static StudentDataViewer.Constants;
 
 namespace StudentDataViewer.Models
 {
@@ -13,6 +14,14 @@ namespace StudentDataViewer.Models
     [DataContract]
     public class ProgramIndex
     {
+
+        public static readonly string[] CourseTypes = new string[]
+        {
+            GeneralEducation,
+            Core,
+            Elective
+        };
+
         /// <summary>
         /// The list of students that this model stores.
         /// </summary>
@@ -52,6 +61,73 @@ namespace StudentDataViewer.Models
                 }
             }
             return list;
+        }
+
+        public string OutputGrade(string studentinfo, int courseinfo)
+        {
+            string grade = "";
+            foreach (CourseStudent courseStudent in CourseStudents)
+            {
+                if (courseStudent.CourseID.Equals(courseinfo))
+                {
+                    if (courseStudent.StudentID.Equals(studentinfo))
+                    {
+                        grade = courseStudent.Grade;
+                    }
+                }
+
+            }
+            return grade;
+        }
+
+        public List<string> ListAllCoursesByStudent(object student_)
+        {
+            var PreformatID = student_.ToString().Split(';');
+            var Student = FindStudentByID(PreformatID[0]);
+            List<string> CourseList = new List<string>(); //Format: CourseName +  ", ID: " + CourseID
+            string CourseListViewName = "";
+            foreach (CourseStudent courseStudent in CourseStudents)
+            {
+                if (courseStudent.StudentID == PreformatID[0])
+                {
+                    var tempcourse = FindCourseByID(courseStudent.CourseID);
+                    CourseListViewName = tempcourse.CourseName + ", ID: " + Convert.ToString(tempcourse.CourseID);
+                    CourseList.Add(CourseListViewName);
+
+                }
+            }
+            return CourseList;
+        }
+
+        private double AverageCompletion(IEnumerable<CourseGrade> courses)
+        {
+            return courses.Select(c => CourseGradeCheck(c.Grade) ? 1 : 0).DefaultIfEmpty().Average();
+        }
+
+        public Dictionary<string, double> CompletionStatusPerType(List<CourseGrade> courses)
+        {
+            return new Dictionary<string, double>()
+            {
+                { GeneralEducation,    AverageCompletion(courses.Where(c => c.Course.CourseType == GeneralEducation)) },
+                { Core,                AverageCompletion(courses.Where(c => c.Course.CourseType == Core)) },
+                { Elective,            AverageCompletion(courses.Where(c => c.Course.CourseType == Elective)) },
+                { "",                  AverageCompletion(courses) }
+            };
+        }
+
+        public bool CourseGradeCheck(string grade)
+        {
+            switch (grade)
+            {
+                case "W":
+                    return false;
+                case "F":
+                    return false;
+                case "I":
+                    return false;
+                default:
+                    return true;
+            }
         }
 
         public Course FindCourseByID(int courseID)

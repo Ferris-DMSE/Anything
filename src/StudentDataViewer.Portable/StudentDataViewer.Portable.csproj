@@ -37,6 +37,7 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CourseGrade.cs" />
     <Compile Include="Models\CourseStudent.cs" />

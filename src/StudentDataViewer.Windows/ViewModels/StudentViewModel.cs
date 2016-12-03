@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using StudentDataViewer.Models;
+using static StudentDataViewer.Constants;
 
 namespace StudentDataViewer.Windows.ViewModels
 {
@@ -15,6 +16,7 @@ namespace StudentDataViewer.Windows.ViewModels
             return new StudentViewModel()
             {
                 Student = student,
+                AverageCompletionPerCourseType = data.CompletionStatusPerType(courseGrades),
                 Courses = courseGrades
                     .Select(CourseViewModel.FromCourseGrade)
                     .OrderBy(c => c.Model.Course.Year)
@@ -22,6 +24,8 @@ namespace StudentDataViewer.Windows.ViewModels
                     .ToList()
             };
         }
+
+        public Dictionary<string, double> AverageCompletionPerCourseType { get; set; }
 
         public static StudentViewModel FromDataAndId(ProgramIndex data, string id)
         {
@@ -32,5 +36,13 @@ namespace StudentDataViewer.Windows.ViewModels
         public List<CourseViewModel> Courses { get; private set; }
         public Student Student { get; private set; }
         public string FullName => $"{Student.FirstName} {Student.LastName}";
+        public string AverageCoreCompletion => 
+                AverageCompletionPerCourseType[Core].ToString("P");
+        public string AverageElectiveCompletion => 
+                AverageCompletionPerCourseType[Elective].ToString("P");
+        public string AverageGenEdCompletion => 
+                AverageCompletionPerCourseType[GeneralEducation].ToString("P");
+        public string AverageTotalCompletion =>
+                AverageCompletionPerCourseType[""].ToString("P");
     }
 }
