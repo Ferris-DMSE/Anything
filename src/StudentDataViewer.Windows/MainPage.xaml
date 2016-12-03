@@ -34,19 +34,163 @@
                     Text="{x:Bind Student.StudentID}"/>
             </Grid>
         </DataTemplate>
-        <DataTemplate x:Key="DetailContentTemplate" x:DataType="viewModels:StudentViewModel">
-            <StackPanel>
+        <DataTemplate x:Name="CourseItemTemplate" x:DataType="viewModels:CourseViewModel">
+            <Grid HorizontalAlignment="Stretch" Margin="0,11,0,11">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="43"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock 
+                    Grid.Row="0" 
+                    Grid.Column="0" 
+                    TextWrapping="WrapWholeWords"
+                    Text="{x:Bind NumberAndNameAndType}"/>
                 <TextBlock
-                    Margin="8,0"
-                    Style="{ThemeResource TitleTextBlockStyle}"
-                    HorizontalAlignment="Left"
-                    Text="{x:Bind Student.FirstName}"/>
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    TextWrapping="WrapWholeWords"
+                    Text="{x:Bind Credit}"/>
+                <TextBlock 
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    TextWrapping="WrapWholeWords"
+                    Text="{x:Bind SemesterAndYear}"/>
+                <Grid
+                    Grid.Row="0"
+                    Grid.RowSpan="3"
+                    Grid.Column="1"
+                    Margin="8,0,0,0">
+                    <Rectangle
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Fill="{x:Bind GradeFill, Mode=OneWay}"/>
+                    <TextBlock
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"
+                        TextAlignment="Right"
+                        Padding="8,0,8,0"
+                        FontSize="30"
+                        Width="35"
+                        Text="{x:Bind Model.Grade}"/>
+                </Grid>
+
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DetailContentTemplate" x:DataType="viewModels:StudentViewModel">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
                 <TextBlock
+                    Grid.Row="0"
+                    Margin="8,0"
+                    Style="{ThemeResource HeaderTextBlockStyle}"
+                    HorizontalAlignment="Left"
+                    Text="{x:Bind FullName}"/>
+
+                <TextBlock
+                    Grid.Row="1"
+                    Margin="8,0,8,4"
+                    Style="{ThemeResource SubtitleTextBlockStyle}"
+                    HorizontalAlignment="Left"
+                    Text="{x:Bind Student.StudentID}"/>
+
+                <TextBlock
+                    Grid.Row="2"
                     Margin="8,0"
                     HorizontalAlignment="Left"
-                    Text="{x:Bind Courses.Count}"/>
-            </StackPanel>
+                    Text="Completion Status"
+                    Style="{ThemeResource SubheaderTextBlockStyle}"/>
+
+                <Grid
+                    Grid.Row="3"
+                    Margin="8,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Core"/>
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Text="{x:Bind AverageCoreCompletion}"/>
+
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="Elective"/>
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="{x:Bind AverageElectiveCompletion}"/>
+
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Text="Gen Ed"/>
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Text="{x:Bind AverageGenEdCompletion}"/>
+
+                    <TextBlock
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        FontWeight="Bold"
+                        Text="Total"/>
+                    <TextBlock
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        FontWeight="Bold"
+                        Text="{x:Bind AverageTotalCompletion}"/>
+                </Grid>
+
+                <TextBlock
+                    Grid.Row="4"
+                    Margin="8,0"
+                    HorizontalAlignment="Left"
+                    Text="Courses"
+                    Style="{ThemeResource SubheaderTextBlockStyle}"/>
+
+                <ListView
+                    Grid.Row="5"
+                    x:Name="Courses"
+                    HorizontalAlignment="Stretch"
+                    SelectionMode="None"
+                    ItemsSource="{x:Bind Courses}"
+                    ItemTemplate="{StaticResource CourseItemTemplate}">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </Grid>
         </DataTemplate>
     </Page.Resources>
     <Grid x:Name="LayoutRoot" Loaded="LayoutRoot_Loaded">
