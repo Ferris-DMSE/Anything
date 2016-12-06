@@ -8,7 +8,7 @@
     <ProjectGuid>{E1FDBD5F-3588-4BD3-BB02-3A5DBEAD0CCB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StudentDataViewer.Core</RootNamespace>
+    <RootNamespace>StudentDataViewer</RootNamespace>
     <AssemblyName>StudentDataViewer.Core</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
@@ -37,6 +37,11 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\CourseGrade.cs" />
+    <Compile Include="Models\CourseStudent.cs" />
+    <Compile Include="Models\ProgramIndex.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
