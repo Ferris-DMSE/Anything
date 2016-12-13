@@ -25,10 +25,12 @@ namespace StudentDataViewer
     /// </summary>
     public sealed partial class StudentCourse : Page
     {
-        private static readonly DependencyProperty studentProperty = DependencyProperty.Register(nameof(Student), typeof(Student), typeof(StudentCourse), new PropertyMetadata(null));
-        public static DependencyProperty StudentProperty => studentProperty;
-        private static readonly DependencyProperty coursesProperty = DependencyProperty.Register(nameof(Courses), typeof(List<CourseGrade>), typeof(StudentCourse), new PropertyMetadata(null));
-        public static DependencyProperty CoursesProperty => coursesProperty;
+        public static readonly DependencyProperty StudentProperty = DependencyProperty.Register(nameof(Student), typeof(Student), typeof(StudentCourse), new PropertyMetadata(null));
+        public static readonly DependencyProperty CoursesProperty = DependencyProperty.Register(nameof(Courses), typeof(List<CourseGrade>), typeof(StudentCourse), new PropertyMetadata(null));
+        public static readonly DependencyProperty TotalCompletionProperty = DependencyProperty.Register(nameof(TotalCompletion), typeof(string), typeof(StudentCourse), new PropertyMetadata(null));
+        public static readonly DependencyProperty ElectiveCompletionProperty = DependencyProperty.Register(nameof(ElectiveCompletion), typeof(string), typeof(StudentCourse), new PropertyMetadata(null));
+        public static readonly DependencyProperty CoreCompletionProperty = DependencyProperty.Register(nameof(CoreCompletion), typeof(string), typeof(StudentCourse), new PropertyMetadata(null));
+        public static readonly DependencyProperty GenEdCompletionProperty = DependencyProperty.Register(nameof(GenEdCompletion), typeof(string), typeof(StudentCourse), new PropertyMetadata(null));
 
         public Student Student
         {
@@ -38,8 +40,32 @@ namespace StudentDataViewer
 
         public List<CourseGrade> Courses
         {
-            get { return (List<CourseGrade>) GetValue(CoursesProperty); }
+            get { return (List<CourseGrade>)GetValue(CoursesProperty); }
             set { SetValue(CoursesProperty, value); }
+        }
+
+        public string TotalCompletion
+        {
+            get { return (string)GetValue(TotalCompletionProperty); }
+            set { SetValue(TotalCompletionProperty, value); }
+        }
+
+        public string ElectiveCompletion
+        {
+            get { return (string)GetValue(ElectiveCompletionProperty); }
+            set { SetValue(ElectiveCompletionProperty, value); }
+        }
+
+        public string CoreCompletion
+        {
+            get { return (string)GetValue(CoreCompletionProperty); }
+            set { SetValue(CoreCompletionProperty, value); }
+        }
+
+        public string GenEdCompletion
+        {
+            get { return (string) GetValue(GenEdCompletionProperty); } 
+            set { SetValue(GenEdCompletionProperty, value); }
         }
 
         public StudentCourse()
@@ -57,6 +83,11 @@ namespace StudentDataViewer
             this.Student = student;
             var courses = data.FindCoursesForStudent(student);
             this.Courses = courses;
+            var completion = data.CompletionStatusPerType(courses);
+            this.GenEdCompletion = completion[0].ToString("P");
+            this.CoreCompletion = completion[1].ToString("P");
+            this.ElectiveCompletion = completion[2].ToString("P");
+            this.TotalCompletion = completion[3].ToString("P");
 
             var systemNavigationManager = SystemNavigationManager.GetForCurrentView();
             if (Frame.CanGoBack)

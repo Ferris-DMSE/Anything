@@ -40,21 +40,35 @@
                         FontSize="15"
                         Text="{x:Bind Course.Year}"/>
                 </StackPanel>
-                <TextBlock
+                <StackPanel
                     Grid.Row="2"
-                    FontSize="15"
-                    Text="{x:Bind Grade}"/>
+                    Orientation="Horizontal">
+                    <TextBlock
+                        Margin="0,0,5,0"
+                        FontSize="15"
+                        Text="{x:Bind Grade}"/>
+                    <TextBlock 
+                        Margin="0,0,5,0"
+                        FontSize="15"
+                        Text="Credits: "/>
+                    <TextBlock
+                        Margin="0,0,5,0"
+                        FontSize="15"
+                        Text="{x:Bind Course.Credit}"/>
+                </StackPanel>
             </Grid>
         </DataTemplate>
     </Page.Resources>
 
     <Grid 
         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" 
-        Margin="10,10">
+        Margin="10,10"
+        HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <StackPanel
@@ -79,5 +93,60 @@
             SelectionMode="None"
             ItemsSource="{x:Bind Courses}"
             ItemTemplate="{StaticResource CourseItemTemplate}"/>
+        
+        <Grid
+            Grid.Row="3"
+            HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Core"/>
+
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="{x:Bind CoreCompletion}"/>
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Gen Ed"/>
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="{x:Bind GenEdCompletion}"/>
+
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="Elective"/>
+
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="1"
+                Text="{x:Bind ElectiveCompletion}"/>
+
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="0"
+                Text="Total"/>
+
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="1"
+                Text="{x:Bind TotalCompletion}"/>
+        </Grid>
     </Grid>
 </Page>
