@@ -25,10 +25,8 @@ namespace StudentDataViewer
     /// </summary>
     public sealed partial class StudentCourse : Page
     {
-        private static readonly DependencyProperty studentProperty = DependencyProperty.Register(nameof(Student), typeof(Student), typeof(StudentCourse), new PropertyMetadata(null));
-        public static DependencyProperty StudentProperty => studentProperty;
-        private static readonly DependencyProperty coursesProperty = DependencyProperty.Register(nameof(Courses), typeof(List<CourseGrade>), typeof(StudentCourse), new PropertyMetadata(null));
-        public static DependencyProperty CoursesProperty => coursesProperty;
+        public static readonly DependencyProperty StudentProperty = DependencyProperty.Register(nameof(Student), typeof(Student), typeof(StudentCourse), new PropertyMetadata(null));
+        public static readonly DependencyProperty CoursesProperty = DependencyProperty.Register(nameof(Courses), typeof(List<CourseGrade>), typeof(StudentCourse), new PropertyMetadata(null));
 
         public Student Student
         {
@@ -57,6 +55,11 @@ namespace StudentDataViewer
             this.Student = student;
             var courses = data.FindCoursesForStudent(student);
             this.Courses = courses;
+            var totals = data.CompletionStatusPerType(this.Courses);
+            this.GenEdCompletionStatus = totals[0].ToString("P");
+            this.CoreCompletionStatus = totals[1].ToString("P");
+            this.ElectiveCompletionStatus = totals[2].ToString("P");
+            this.TotalCompletionStatus = totals[3].ToString("P");
 
             var systemNavigationManager = SystemNavigationManager.GetForCurrentView();
             if (Frame.CanGoBack)
@@ -69,6 +72,11 @@ namespace StudentDataViewer
                 systemNavigationManager.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             }
         }
+
+        public string TotalCompletionStatus { get; set; }
+        public string ElectiveCompletionStatus { get; set; }
+        public string CoreCompletionStatus { get; set; }
+        public string GenEdCompletionStatus { get; set; }
 
         private void SystemNavigationManagerOnBackRequested(object sender, BackRequestedEventArgs backRequestedEventArgs)
         {
