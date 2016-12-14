@@ -7,7 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:StudentDataViewer.Models"
     mc:Ignorable="d">
-
     <Page.Resources>
         <DataTemplate x:Name="CourseItemTemplate" x:DataType="models:CourseGrade">
             <Grid Margin="0,3,0,10">
