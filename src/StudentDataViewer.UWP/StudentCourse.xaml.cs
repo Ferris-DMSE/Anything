@@ -56,10 +56,10 @@ namespace StudentDataViewer
             var courses = data.FindCoursesForStudent(student);
             this.Courses = courses;
             var totals = data.CompletionStatusPerType(this.Courses);
-            this.GenEdCompletionStatus = totals[0].ToString("P");
-            this.CoreCompletionStatus = totals[1].ToString("P");
-            this.ElectiveCompletionStatus = totals[2].ToString("P");
-            this.TotalCompletionStatus = totals[3].ToString("P");
+            this.GenEdCompletionStatus = totals[0];
+            this.CoreCompletionStatus = totals[1];
+            this.ElectiveCompletionStatus = totals[2];
+            this.TotalCompletionStatus = totals[3];
 
             var systemNavigationManager = SystemNavigationManager.GetForCurrentView();
             if (Frame.CanGoBack)
@@ -73,10 +73,15 @@ namespace StudentDataViewer
             }
         }
 
-        public string TotalCompletionStatus { get; set; }
-        public string ElectiveCompletionStatus { get; set; }
-        public string CoreCompletionStatus { get; set; }
-        public string GenEdCompletionStatus { get; set; }
+        public double TotalCompletionStatus { get; set; }
+        public double ElectiveCompletionStatus { get; set; }
+        public double CoreCompletionStatus { get; set; }
+        public double GenEdCompletionStatus { get; set; }
+
+        public string TotalCompletionStatusFormatted => TotalCompletionStatus.ToString("P");
+        public string ElectiveCompletionStatusFormatted => ElectiveCompletionStatus.ToString("P");
+        public string CoreCompletionStatusFormatted => CoreCompletionStatus.ToString("P");
+        public string GenEdCompletionStatusFormatted => GenEdCompletionStatus.ToString("P");
 
         private void SystemNavigationManagerOnBackRequested(object sender, BackRequestedEventArgs backRequestedEventArgs)
         {

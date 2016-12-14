@@ -43,6 +43,24 @@
       <Year>2016</Year>
       <CourseType>Core</CourseType>
     </Course>
+    <Course>
+      <CourseName>Rock Structures and Formations</CourseName>
+      <CourseID>010555</CourseID>
+      <CourseNumber>GEO-102</CourseNumber>
+      <Credit>3</Credit>
+      <Semester>Spring</Semester>
+      <Year>2016</Year>
+      <CourseType>Core</CourseType>
+    </Course>
+    <Course>
+      <CourseName>Advanced Rocketry</CourseName>
+      <CourseID>010777</CourseID>
+      <CourseNumber>ROCK-601</CourseNumber>
+      <Credit>16</Credit>
+      <Semester>All</Semester>
+      <Year>2017</Year>
+      <CourseType>Elective</CourseType>
+    </Course>
   </Courses>
   <CourseStudents>
     <CourseStudent>
@@ -59,6 +77,26 @@
       <Grade>A</Grade>
       <StudentID>0-00-222</StudentID>
       <CourseID>010666</CourseID>
+    </CourseStudent>
+    <CourseStudent>
+      <Grade>B</Grade>
+      <StudentID>0-00-222</StudentID>
+      <CourseID>010777</CourseID>
+    </CourseStudent>
+    <CourseStudent>
+      <Grade>I</Grade>
+      <StudentID>0-00-111</StudentID>
+      <CourseID>010777</CourseID>
+    </CourseStudent>
+    <CourseStudent>
+      <Grade>W</Grade>
+      <StudentID>0-00-111</StudentID>
+      <CourseID>010555</CourseID>
+    </CourseStudent>
+    <CourseStudent>
+      <Grade>W</Grade>
+      <StudentID>0-00-222</StudentID>
+      <CourseID>010555</CourseID>
     </CourseStudent>
   </CourseStudents>
 </ProgramIndex>

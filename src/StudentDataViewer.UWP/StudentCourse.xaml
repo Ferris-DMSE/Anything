@@ -105,46 +105,94 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            
+
+            <ProgressBar 
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Height="24"
+                Minimum="0"
+                Maximum="1"
+                Value="{x:Bind GenEdCompletionStatus}"
+                Foreground="Aquamarine"/>
+
             <TextBlock
                 Grid.Row="0"
                 Grid.Column="0"
+                Margin="5,0,5,0"
                 Text="Gen Ed"/>
 
             <TextBlock
                 Grid.Row="0"
                 Grid.Column="1"
-                Text="{x:Bind GenEdCompletionStatus}"/>
+                Margin="5,0,5,0"
+                Text="{x:Bind GenEdCompletionStatusFormatted}"/>
+
+            <ProgressBar 
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Height="24"
+                Minimum="0"
+                Maximum="1"
+                Value="{x:Bind CoreCompletionStatus}"
+                Foreground="Aqua"/>
 
             <TextBlock
                 Grid.Row="1"
                 Grid.Column="0"
+                Margin="5,0,5,0"
                 Text="Core"/>
 
             <TextBlock
                 Grid.Row="1"
                 Grid.Column="1"
-                Text="{x:Bind CoreCompletionStatus}"/>
+                Margin="5,0,5,0"
+                Text="{x:Bind CoreCompletionStatusFormatted}"/>
 
+            <ProgressBar 
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Height="24"
+                Minimum="0"
+                Maximum="1"
+                Value="{x:Bind ElectiveCompletionStatus}"
+                Foreground="BlueViolet"/>
+            
             <TextBlock
                 Grid.Row="2"
                 Grid.Column="0"
+                Margin="5,0,5,0"
                 Text="Elective"/>
 
             <TextBlock
                 Grid.Row="2"
                 Grid.Column="1"
-                Text="{x:Bind ElectiveCompletionStatus}"/>
+                Margin="5,0,5,0"
+                Text="{x:Bind ElectiveCompletionStatusFormatted}"/>
 
+            <ProgressBar 
+                Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Height="24"
+                Minimum="0"
+                Maximum="1"
+                Value="{x:Bind TotalCompletionStatus}"
+                Foreground="Bisque"/>
+            
             <TextBlock
                 Grid.Row="3"
                 Grid.Column="0"
+                Margin="5,0,5,0"
                 Text="Total"/>
 
             <TextBlock
                 Grid.Row="3"
                 Grid.Column="1"
-                Text="{x:Bind TotalCompletionStatus}"/>
+                Margin="5,0,5,0"
+                Text="{x:Bind TotalCompletionStatusFormatted}"/>
 
         </Grid>
     </Grid>
